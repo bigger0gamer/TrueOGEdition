@@ -83,7 +83,7 @@
 ; game.bin
 .openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/game.bin","../build env/Digimon Rumble Arena (US)/inject/bin/game.bin",0x800643C0
 
-  .include "title/CharacterStateVisualizer.asm"
+  .include "game/CharacterStateVisualizerGame.asm"
   
   ; Respawn Combo
   .org 0x80070724 :: RespawnComboReturn:
