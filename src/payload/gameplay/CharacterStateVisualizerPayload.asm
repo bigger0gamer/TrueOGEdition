@@ -25,7 +25,28 @@
 ; load invinc - lw v0,0x0498(s3)
 
 CharacterStateVisualizer:
-  nop
+  ; Yellow Flash--
+  lw v0,0x0498(s3)  ; load player invicibility'
+  blez s1,@@SkipYellowFlashMinusMinus
+  addi s1,s1,-1
+  sb s1,0x0491(s3)
+  
+  @@SkipYellowFlashMinusMinus:
+  slt at,s1,r0
+  bne at,r0,@@SkipYellowFlash
+  andi at,s1,1
+  sll at,at,10
+  addi s4,at,0x0A00
+  addiu s1,s3,0x0400
+  addu a0,s1,r0
+  li s0,StateColor
+  add a1,s0,r0
+  sw s4,0x0000(s0)
+  sw s4,0x0004(s0)
+  j CharacterStateVisualizerReturn
+  sw at,0x0008(s0)
+  
+  @@SkipYellowFlash:
   beq v0,r0,@@NotInvincible  ; if not invincible, run original instructions
   andi at,v0,1
   sll at,at,10
@@ -40,6 +61,16 @@ CharacterStateVisualizer:
   sw s4,0x0008(s0)
   
   @@NotInvincible:
-  lw v0,0x0490(s3)
+  lb v0,0x0490(s3)  ; original instruction*
   j CharacterStateVisualizerAbort
   nop
+
+StunFlash:
+  beq v0,r0,@@NoFlash
+  addi at,r0,0xA
+  sb at,0x0491(s0)
+  
+  @@NoFlash:
+  lui ra,hi(0x800817AC)
+  j 0x8008198C
+  addi ra,ra,lo(0x800817AC)
