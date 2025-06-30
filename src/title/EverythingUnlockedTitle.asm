@@ -5,7 +5,7 @@
 ; Reapermon's Den Unlocked
 ; Stage Select: Removes branch if arcade mode hasn't been cleared
 .org 0x8007913C
-  nop 
+  nop
 
 ; Minigames Unlocked
 ; Main Menu: Removes branch if no minigames have been unlocked
@@ -29,7 +29,7 @@
 .org 0x80074910
   nop
 
-
+;TODO move
 ; Bottom Row Evos Available in 1P Arcade Mode: nops what overwrites bottom row evos as locked
 .org 0x80074434
   nop

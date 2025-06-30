@@ -6,6 +6,38 @@
 
 
 
+TODO LIST:
+- Clean up TrueOG.asm and move as much shit as possible to separate files
+ - If possible, check in with old .asm files to brush up on comments and shit
+- Change respawn combos off to increase the respawn invinciblity instead of changing respawn from launched to knockdown
+- Stage striking
+ - :bc: automatic strike down to legal stages
+ - :bs: to strike stages
+  - striking last available stage should unstrike all stages
+- TO Lockout features
+ - change settings in options as needed
+ - VS CPU -> L2+R2+Select to start
+ - :bs: to (un)ban characters
+ - pick characters to advance
+ - :bs: to ban stages
+ - select stage to go back to back to main menu
+ - select 2P VS to finalize lockout
+ 
+ - Prevent leaving 2P VS
+  - Alternatively, if I can figure it out, prevent entering any mode that isn't 2P VS, so you can back out if you choose the wrong character?
+ - Prevent picking banned characters
+ - Prevent altering handicap from 8/8
+ - Prevent picking banned stages
+ - 2 second hold delay on pausing
+
+WHATS NEW:
+- :bt: on stage/minigame select in all modes, including character preview screen in 1P arcade mode
+- Cyan flash when invincible
+- Yellow flash on stun
+- 
+
+
+
 ; SLUS_014.04, anything that needs to be inserted into the main executable or payload goes here
 ; The output file "TITLE_ID" should be replaced by build.sh with a sed command at build time (see build.sh for more info)
 .openfile "../build env/Digimon Rumble Arena (US)/SLUS_014.04","../build env/Digimon Rumble Arena (US)/TITLE_ID",0x8000F800
@@ -115,8 +147,8 @@
 ; title.bin
 .openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/title.bin","../build env/Digimon Rumble Arena (US)/inject/bin/title.bin",0x800643C0
 
-  .include "title/EverythingUnlocked.asm"
-  .include "title/OptionsMenuVariableRedirects.asm"
+  .include "title/EverythingUnlockedTitle.asm"
+  .include "title/OptionsMenuVariableRedirectsTitle.asm"
   
   ; RNG Generator: We just hook a global frame counter, and use it to make "RNG" counters for
   ; stuff like random character, stage, or music
