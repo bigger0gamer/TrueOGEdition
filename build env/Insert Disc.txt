@@ -1,0 +1,5 @@
+To setup the build environment, you will need to provide a clean copy of Digimon Rumble Arena. Please use the following file names (matching the following hash), and then run extract.sh
+
+Digimon Rumble Arena (US).cue
+Digimon Rumble Arena (US).bin
+MD5: 8fcbdeb16de13f9644dec6c17a94cd3f
