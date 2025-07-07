@@ -40,8 +40,7 @@
 ; 800817a4 - if on this instruction and v0==1, then about to stun
 ; at free
 .org 0x800817A4
-  j StunFlash
-  lw a1,0x0220(s0)
+  j IsKnockdown
 .org 0x8007F4CC
   j IsStun
 

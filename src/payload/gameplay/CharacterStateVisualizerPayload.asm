@@ -25,18 +25,19 @@
 ; load invinc - lw v0,0x0498(s3)
 
 CharacterStateVisualizer:
+  lb v0,0x0492(s3)
   ; Yellow Flash--
-  lw v0,0x0498(s3)  ; load player invicibility'
   blez s1,@@SkipYellowFlashMinusMinus
   addi s1,s1,-1
   sb s1,0x0491(s3)
   
   @@SkipYellowFlashMinusMinus:
+  beq v0,r0,@@SkipYellowFlash
   slt at,s1,r0
   bne at,r0,@@SkipYellowFlash
   andi at,s1,1
-  sll at,at,10
-  addi s4,at,0x0A00
+  sll at,at,11
+  addi s4,at,0x0700
   addiu s1,s3,0x0400
   addu a0,s1,r0
   li s0,StateColor
@@ -47,6 +48,8 @@ CharacterStateVisualizer:
   sw at,0x0008(s0)
   
   @@SkipYellowFlash:
+  lw v0,0x0498(s3)  ; load player invicibility'
+  nop
   beq v0,r0,@@NotInvincible  ; if not invincible, run original instructions
   andi at,v0,1
   sll at,at,10
@@ -71,21 +74,13 @@ CharacterStateVisualizer:
 ; slt ?,curStun,StunLimit
 ; xori ?,?,1
 ; free reg: at, a1
-StunFlash:
-  lw at,0x0028(s2)
-  lw a1,0x0014(a1)
-  nop
-  slt at,at,a1
-  bne at,r0,@@NoFlash
-  addiu a1,r0,0xD
+IsKnockdown:
   addi at,r0,0xA
   sb at,0x0491(s0)
-  
-  @@NoFlash:
   lui ra,hi(0x800817AC)
   j 0x8008198C
   addi ra,ra,lo(0x800817AC)
 
 IsStun:
   jr ra
-  sb at,0x0492(a0)
+  sb v0,0x0492(a0)
