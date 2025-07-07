@@ -43,17 +43,8 @@
 .openfile "../build env/Digimon Rumble Arena (US)/SLUS_014.04","../build env/Digimon Rumble Arena (US)/TITLE_ID",0x8000F800
 
   ; First, we need to start with any data that needs to be modified in SLUS_014.04 itself
-  ; All Characters Unlocked
-  ; Character Select: Sets all bits in a0 instead of loading unlocked characters from RAM (lazy)
-  .org 0x8001D31C
-    addi a0,r0,-1
-  
-  ; Random Music
-  .org 0x8001D720 :: RandomMusicReturn:
-  .org 0x8001D704 :: ArcadeMusicReturn:
-  .org 0x8001D6FC
-    j RandomMusic
-    lui v1,hi(MusicRNGVar)
+  .include "exe/EverythingUnlockedExe.asm"
+  .include "exe/RandomMusicExe.asm"
   
   ; Alt Color
   .org 0x8001E1CC
@@ -149,6 +140,7 @@
 
   .include "title/EverythingUnlockedTitle.asm"
   .include "title/OptionsMenuVariableRedirectsTitle.asm"
+  .include "title/MiscQoLTitle.asm"
   
   ; RNG Generator: We just hook a global frame counter, and use it to make "RNG" counters for
   ; stuff like random character, stage, or music
@@ -195,7 +187,8 @@
 
 ; st00.bin - Garbage Recycling Center
 .openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/st00.bin","../build env/Digimon Rumble Arena (US)/inject/bin/st00.bin",0x800D3B00
-  .include "st0X/RecycSt.asm"
+  ;.include "st0X/RecycSt.asm"
+  .include "st0X/RecycSt2.asm"
 .close
 
 ; st01.bin - Wilderness

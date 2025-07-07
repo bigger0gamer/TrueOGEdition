@@ -41,6 +41,9 @@
 ; at free
 .org 0x800817A4
   j StunFlash
+  lw a1,0x0220(s0)
+.org 0x8007F4CC
+  j IsStun
 
 
 ; make "hitstun flash" use only a single byte

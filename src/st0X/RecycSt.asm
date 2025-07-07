@@ -1,6 +1,9 @@
 ; Garbage Recycling Center - st00.bin
 .psx
 
+; 800D6268 800D62B0 800D64A4 nop
+; 800DA0F4 lui a1,0x9800
+
 ; Disable Teleporter
 .org 0x800D58C8 :: RecyclingTeleporterReturn:
 .org 0x800D58C0

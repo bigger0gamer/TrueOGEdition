@@ -65,8 +65,19 @@ CharacterStateVisualizer:
   j CharacterStateVisualizerAbort
   nop
 
+; 0x0028(s2)  load cur stun
+; lw ?,0x0220(s0) -> 0x0014(?) load stun limit
+; nop
+; slt ?,curStun,StunLimit
+; xori ?,?,1
+; free reg: at, a1
 StunFlash:
-  beq v0,r0,@@NoFlash
+  lw at,0x0028(s2)
+  lw a1,0x0014(a1)
+  nop
+  slt at,at,a1
+  bne at,r0,@@NoFlash
+  addiu a1,r0,0xD
   addi at,r0,0xA
   sb at,0x0491(s0)
   
@@ -74,3 +85,7 @@ StunFlash:
   lui ra,hi(0x800817AC)
   j 0x8008198C
   addi ra,ra,lo(0x800817AC)
+
+IsStun:
+  jr ra
+  sb at,0x0492(a0)
