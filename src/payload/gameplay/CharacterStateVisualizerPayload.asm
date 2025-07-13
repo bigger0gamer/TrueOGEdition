@@ -25,6 +25,13 @@
 ; load invinc - lw v0,0x0498(s3)
 
 CharacterStateVisualizer:
+  li at,0x80107744
+  beq s3,at,@@NotPlayer2
+  nop
+  li at,Player2StatePointer
+  sw s3,0x0000(at)
+  @@NotPlayer2:
+  
   lb v0,0x0492(s3)
   ; Yellow Flash--
   blez s1,@@SkipYellowFlashMinusMinus

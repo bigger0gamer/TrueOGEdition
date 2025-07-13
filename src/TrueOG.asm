@@ -99,6 +99,8 @@
   .org 0x801FC90C :: Color1PVar:
   .org 0x801FC910 :: Color2PVar:
   .org 0x801FC914 :: StateColor:
+  .org 0x801FC920 :: Player2StatePointer:
+  .org 0x801FC924 :: NoHazCustomVar:
 .close
 
 
@@ -198,7 +200,8 @@
 
 ; st02.bin - Revolution
 .openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/st02.bin","../build env/Digimon Rumble Arena (US)/inject/bin/st02.bin",0x800D3B00
-  .include "st0X/RevoSt.asm"
+  ;.include "st0X/RevoSt.asm"
+  .include "st0X/RevoSt2.asm"
 .close
 
 ; st03.bin - Sanctuary
