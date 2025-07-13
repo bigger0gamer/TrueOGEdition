@@ -108,6 +108,13 @@
 ; game.bin
 .openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/game.bin","../build env/Digimon Rumble Arena (US)/inject/bin/game.bin",0x800643C0
 
+  .org 0x80073320
+    ori v0,v0,0x0060  ; patch to pause timer
+  .org 0x80073330
+    addiu v1,r0,0xFF9F
+  
+  
+  
   .include "game/CharacterStateVisualizerGame.asm"
   
   ; Respawn Combo

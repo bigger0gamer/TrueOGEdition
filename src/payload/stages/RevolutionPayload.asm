@@ -14,10 +14,17 @@ RevoSpinCooldown:
   lw at,0x0d48(s1)  ; original instruction* (at instead of v0)
   bne v0,r0,@@SkipNoHazCooldown
   slti v0,at,0x012D  ; original instruction* (at instead of v0)
-  slti v0,at,30*3
+  slti v0,at,30*2
   @@SkipNoHazCooldown:
   j RevoSpinCooldownReturn
   nop
+
+ForceSpinCounterReset:
+  lui at,hi(NoHazCustomVar)
+  sw r0,lo(NoHazCustomVar)(at)
+  j ForceSpinCounterResetReturn
+  sw r0,0x0D48(s1)  ; original instruction
+  
 
 RevoFauxCeiling:
   lw at,lo(HazardsVar)(at)
@@ -67,5 +74,6 @@ RevoFauxCeiling:
   j RevoNoSpinReturn
   nop
   @@ForceSpin:
+  addi at,r0,30*3
   j RevoSpinReturn
   sw r0,0x0000(v0)
