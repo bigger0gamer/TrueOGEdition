@@ -22,3 +22,11 @@
     sll s2,s4,4
     lui v0,hi(HazardsVar)
     lw v0,lo(HazardsVar)(v0)
+
+
+
+.org 0x800D4D34 :: GlacierRaiseWaterReturn:
+.org 0x800D4D2C
+  j GlacierRaiseWater
+  lui at,hi(HazardsVar)
+  bne at,r0,0x800D4E5C

@@ -21,8 +21,8 @@ RevoSpinCooldown:
 
 ForceSpinCounterReset:
   lui at,hi(NoHazCustomVar)
-  lw at,lo(HazardsVar)(at)
-  sw r0,lo(NoHazCustomVar)(at) :: .resetdelay
+  lw at,lo(HazardsVar)(at) :: .resetdelay
+  sw r0,lo(NoHazCustomVar)(at)
   bne at,r0,@@Skip
   li at,0x80073320
   addi s0,r0,0x60

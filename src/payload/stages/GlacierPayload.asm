@@ -24,3 +24,15 @@ GlacierNoIcicles:
   lui v0,hi(HazardsVar)
   j GlacierNoIciclesReturn
   lw v0,lo(HazardsVar)(v0)
+
+
+
+GlacierRaiseWater:
+  lw at,lo(HazardsVar)(at)
+  lw v1,0x1DD0(v0)  ; original instruction
+  bne at,r0,@@Skip
+  lui at,0
+  li at,0xFFFFFB00
+  @@Skip:
+  j GlacierRaiseWaterReturn
+  slt at,v1,at

@@ -34,7 +34,7 @@
 ; - :bt: on stage/minigame select in all modes, including character preview screen in 1P arcade mode
 ; - Cyan flash when invincible
 ; - Yellow flash on stun
-; - 
+; - Improved Recycling, Revolution, Glacier
 
 
 
