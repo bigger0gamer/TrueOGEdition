@@ -11,7 +11,7 @@ rm temp.asm
 
 # repack A.VFS
 cd ../build\ env
-./quickbms -w -r digimon_vfs2.bms "Digimon Rumble Arena (US)/A.VFS" "Digimon Rumble Arena (US)/inject"
+quickbms -w -r digimon_vfs2.bms "Digimon Rumble Arena (US)/A.VFS" "Digimon Rumble Arena (US)/inject"
 
 # edit SYSTEM.CNF + .cat & psxbuild
 cp "Digimon Rumble Arena (US)/SYSTEM.CNF" "Digimon Rumble Arena (US)/SYSTEM.bak"
