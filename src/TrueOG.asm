@@ -5,6 +5,11 @@
 .psx
 
 
+; TO LOCKOUT NOTES
+; 0x8006759C - prevent entering anything but 2P VS
+; a0 = 801CED84 -> Entering 2P VS
+
+
 
 ; SLUS_014.04, anything that needs to be inserted into the main executable or payload goes here
 ; The output file "TITLE_ID" should be replaced by build.sh with a sed command at build time (see build.sh for more info)
