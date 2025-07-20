@@ -30,7 +30,7 @@ You will need to install the following:
 
 - [armips](https://github.com/Kingcom/armips) v0.11 or newer
 - [psximager](https://github.com/cebix/psximager) v2.2 or newer
-- [quickbms] (https://aluigi.altervista.org/quickbms.htm) v0.11.0 or newer
+- [quickbms](https://aluigi.altervista.org/quickbms.htm) v0.11.0 or newer
 - A PS1 emulator with debugger of your choice. I personally use [mednafen](https://mednafen.github.io/), but feel free to use whatever you'd like, but being able to launch a game from command line will be desired.
 - A text editor, probably.
 
