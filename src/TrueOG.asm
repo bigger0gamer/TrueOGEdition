@@ -6,50 +6,29 @@
 
 
 
-; TODO LIST:
-; - Clean up TrueOG.asm and move as much shit as possible to separate files
-;  - If possible, check in with old .asm files to brush up on comments and shit
-; - Change respawn combos off to increase the respawn invinciblity instead of changing respawn from launched to knockdown
-; - Stage striking
-;  - :bc: automatic strike down to legal stages
-;  - :bs: to strike stages
-;   - striking last available stage should unstrike all stages
-; - TO Lockout features
-;  - change settings in options as needed
-;  - VS CPU -> L2+R2+Select to start
-;  - :bs: to (un)ban characters
-;  - pick characters to advance
-;  - :bs: to ban stages
-;  - select stage to go back to back to main menu
-;  - select 2P VS to finalize lockout
-;  
-;  - Prevent leaving 2P VS
-;   - Alternatively, if I can figure it out, prevent entering any mode that isn't 2P VS, so you can back out if you choose the wrong character?
-;  - Prevent picking banned characters
-;  - Prevent altering handicap from 8/8
-;  - Prevent picking banned stages
-;  - 2 second hold delay on pausing
-; 
-; WHATS NEW:
-; - :bt: on stage/minigame select in all modes, including character preview screen in 1P arcade mode
-; - Cyan flash when invincible
-; - Yellow flash on stun
-; - Improved Recycling, Revolution, Glacier
-
-
-
 ; SLUS_014.04, anything that needs to be inserted into the main executable or payload goes here
 ; The output file "TITLE_ID" should be replaced by build.sh with a sed command at build time (see build.sh for more info)
 .openfile "../build env/Digimon Rumble Arena (US)/SLUS_014.04","../build env/Digimon Rumble Arena (US)/TITLE_ID",0x8000F800
 
+  ; Custom Variable Labels
+  .org 0x801FC8F0 :: PhysicsVar:
+  .org 0x801FC8F4 :: ItemsVar:
+  .org 0x801FC8F8 :: HazardsVar:
+  .org 0x801FC8FC :: MusicRNGVar:
+  .org 0x801FC900 :: CharacterRNGVar:
+  .org 0x801FC904 :: StageRNGVar:
+  .org 0x801FC908 :: RespawnVar:
+  .org 0x801FC90C :: Color1PVar:
+  .org 0x801FC910 :: Color2PVar:
+  .org 0x801FC914 :: StateColor:
+  .org 0x801FC920 :: Player2StatePointer:
+  .org 0x801FC924 :: NoHazCustomVar:
+  
+  
   ; First, we need to start with any data that needs to be modified in SLUS_014.04 itself
   .include "exe/EverythingUnlockedExe.asm"
   .include "exe/RandomMusicExe.asm"
-  
-  ; Alt Color
-  .org 0x8001E1CC
-    j AltColorsSSS
-    lui a0,hi(Color1PVar)
+  .include "exe/AltColorExe.asm"
   
   
   ; As most of the game's code can't be resized,
@@ -85,22 +64,7 @@
   .if org() > 0x801FF000
     .warning "WARNING: The payload has extended beyond 0x801FF000, there's a chance the payload will get clobbered by the stack!"
   .endif
-  
-  
-  ; TODO move these closer to relevant functions?
-  ; Variable Labels
-  .org 0x801FC8F0 :: PhysicsVar:
-  .org 0x801FC8F4 :: ItemsVar:
-  .org 0x801FC8F8 :: HazardsVar:
-  .org 0x801FC8FC :: MusicRNGVar:
-  .org 0x801FC900 :: CharacterRNGVar:
-  .org 0x801FC904 :: StageRNGVar:
-  .org 0x801FC908 :: RespawnVar:
-  .org 0x801FC90C :: Color1PVar:
-  .org 0x801FC910 :: Color2PVar:
-  .org 0x801FC914 :: StateColor:
-  .org 0x801FC920 :: Player2StatePointer:
-  .org 0x801FC924 :: NoHazCustomVar:
+
 .close
 
 
