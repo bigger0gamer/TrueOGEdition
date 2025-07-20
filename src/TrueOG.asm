@@ -10,6 +10,13 @@
 ; The output file "TITLE_ID" should be replaced by build.sh with a sed command at build time (see build.sh for more info)
 .openfile "../build env/Digimon Rumble Arena (US)/SLUS_014.04","../build env/Digimon Rumble Arena (US)/TITLE_ID",0x8000F800
 
+  ; Inserts a version string into the main exe's header, to make identifying ROM revions easier
+  ; (well, if you know what you're doing anyways lol)
+  ; Like the title ID above, you should specify this string in build.sh
+  .orga 0x90
+    .ascii "VERSION_STRING"
+
+
   ; Custom Variable Labels
   .org 0x801FC8F0 :: PhysicsVar:
   .org 0x801FC8F4 :: ItemsVar:

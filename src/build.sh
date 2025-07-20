@@ -3,9 +3,11 @@
 # So you can easily rename the Title ID by just changing this variable and rebuilding
 # I recommend keeping something placeholder sounding while dev/testing, like TRUE_OGD.EV
 TITLE_ID='TRUE_OGD.EV'
+VERSION_STRING='TrueOG-DEV-BUILD'
 
 # armips
 sed s/TITLE_ID/$TITLE_ID/ TrueOG.asm > temp.asm
+sed -i s/VERSION_STRING/$VERSION_STRING/ temp.asm
 armips temp.asm
 rm temp.asm
 
