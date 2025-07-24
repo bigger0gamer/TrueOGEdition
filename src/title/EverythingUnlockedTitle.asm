@@ -2,10 +2,15 @@
 ; Character Unlocks is under exe/EverythingUnlockedExe.asm
 .psx
 
-; Reapermon's Den Unlocked
-; Stage Select: Removes branch if arcade mode hasn't been cleared
-.org 0x8007913C
+; Reapermon's Den & Basketball available in 2P VS
+.org 0x80079130
+  addiu s0,r0,7
+  addu s4,v0,r0
   nop
+  nop
+  nop
+  nop
+  
 
 ; Minigames Unlocked
 ; Main Menu: Removes branch if no minigames have been unlocked
