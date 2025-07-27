@@ -36,6 +36,11 @@ RandomMusic:
   j ArcadeMusicReturn
   add v0,r0,r0
   @@NoArcadeMusic:
+  slti v0,v1,16
+  bne v0,r0,@@NotCustom
+  nop
+  addi v1,v1,0x69  ; nice :D
+  @@NotCustom:
   j RandomMusicReturn
   addi t0,v1,0x0
 

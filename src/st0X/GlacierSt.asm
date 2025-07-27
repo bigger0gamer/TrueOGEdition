@@ -30,3 +30,6 @@
   j GlacierRaiseWater
   lui at,hi(HazardsVar)
   bne at,r0,0x800D4E5C
+
+.org 0x800D4DB8
+  addi at,r0,0xFB00

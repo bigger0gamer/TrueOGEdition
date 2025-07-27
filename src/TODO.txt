@@ -18,7 +18,6 @@ TODO LIST:
    - Convienent that it teleports to 0, but the jump looks odd
 
 MAYBE LIST:
- - Investigate A.XAP expansion
  - Using passwords as a custom cheat code screen
    - SECRET
    - LEGACY
@@ -33,3 +32,4 @@ WHATS NEW:
  - Yellow flash on stun
  - Improved Recycling, Revolution, Glacier
  - Added Basketball to 2P VS
+ - Added JP 2P VS Music *in addition* to all the US Music!!!!! (Huge thank you to Nagtan!!!!!)

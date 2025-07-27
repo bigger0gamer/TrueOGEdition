@@ -8,7 +8,7 @@
 
 ; SLUS_014.04, anything that needs to be inserted into the main executable or payload goes here
 ; The output file "TITLE_ID" should be replaced by build.sh with a sed command at build time (see build.sh for more info)
-.openfile "../build env/Digimon Rumble Arena (US)/SLUS_014.04","../build env/Digimon Rumble Arena (US)/TITLE_ID",0x8000F800
+.openfile "../build env/Digimon Rumble Arena (USA)/SLUS_014.04","../build env/Digimon Rumble Arena (USA)/TITLE_ID",0x8000F800
 
   ; Inserts a version string into the main exe's header, to make identifying ROM revions easier
   ; (well, if you know what you're doing anyways lol)
@@ -77,7 +77,7 @@
 
 
 ; game.bin
-.openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/game.bin","../build env/Digimon Rumble Arena (US)/inject/bin/game.bin",0x800643C0
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/game.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/game.bin",0x800643C0
 
   .include "game/CharacterStateVisualizerGame.asm"
   .include "game/RespawnCombosGame.asm"
@@ -93,7 +93,7 @@
 
 
 ; title.bin
-.openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/title.bin","../build env/Digimon Rumble Arena (US)/inject/bin/title.bin",0x800643C0
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/title.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/title.bin",0x800643C0
 
   .include "title/EverythingUnlockedTitle.asm"
   .include "title/OptionsMenuVariableRedirectsTitle.asm"
@@ -106,33 +106,33 @@
 
 
 ; st00.bin - Garbage Recycling Center
-.openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/st00.bin","../build env/Digimon Rumble Arena (US)/inject/bin/st00.bin",0x800D3B00
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st00.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st00.bin",0x800D3B00
   ;.include "st0X/RecycSt.asm"
   .include "st0X/RecycSt2.asm"
 .close
 
 ; st01.bin - Wilderness
-.openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/st01.bin","../build env/Digimon Rumble Arena (US)/inject/bin/st01.bin",0x800D3B00
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st01.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st01.bin",0x800D3B00
   .include "st0X/WildSt.asm"
 .close
 
 ; st02.bin - Revolution
-.openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/st02.bin","../build env/Digimon Rumble Arena (US)/inject/bin/st02.bin",0x800D3B00
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st02.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st02.bin",0x800D3B00
   ;.include "st0X/RevoSt.asm"
   .include "st0X/RevoSt2.asm"
 .close
 
 ; st03.bin - Sanctuary
-.openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/st03.bin","../build env/Digimon Rumble Arena (US)/inject/bin/st03.bin",0x800D3B00
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st03.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st03.bin",0x800D3B00
   .include "st0X/SancSt.asm"
 .close
 
 ; st04.bin - Glacier
-.openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/st04.bin","../build env/Digimon Rumble Arena (US)/inject/bin/st04.bin",0x800D3B00
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st04.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st04.bin",0x800D3B00
   .include "st0X/GlacierSt.asm"
 .close
 
 ; st05.bin - Volcano
-.openfile "../build env/Digimon Rumble Arena (US)/vfs/bin/st05.bin","../build env/Digimon Rumble Arena (US)/inject/bin/st05.bin",0x800D3B00
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st05.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st05.bin",0x800D3B00
   .include "st0X/VolcanoSt.asm"
 .close

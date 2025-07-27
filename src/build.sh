@@ -13,22 +13,20 @@ rm temp.asm
 
 # repack A.VFS
 cd ../build\ env
-quickbms -w -r digimon_vfs2.bms "Digimon Rumble Arena (US)/A.VFS" "Digimon Rumble Arena (US)/inject"
+quickbms -w -r digimon_vfs2.bms "Digimon Rumble Arena (USA)/A.VFS" "Digimon Rumble Arena (USA)/inject"
 
 # edit SYSTEM.CNF + .cat & psxbuild
-cp "Digimon Rumble Arena (US)/SYSTEM.CNF" "Digimon Rumble Arena (US)/SYSTEM.bak"
-sed -i s/SLUS_014.04/$TITLE_ID/ "Digimon Rumble Arena (US)/SYSTEM.CNF"
-cp "Digimon Rumble Arena (US).cat" "Digimon Rumble Arena (US).bak"
-sed -i s/SLUS_014.04/$TITLE_ID/ "Digimon Rumble Arena (US).cat"
-psxbuild -c "Digimon Rumble Arena (US).cat" TrueOG.bin
+cp "Digimon Rumble Arena (USA)/SYSTEM.CNF" "Digimon Rumble Arena (USA)/SYSTEM.bak"
+sed -i s/SLUS_014.04/$TITLE_ID/ "Digimon Rumble Arena (USA)/SYSTEM.CNF"
+cp "Digimon Rumble Arena (USA).cat" "Digimon Rumble Arena (USA).bak"
+sed -i s/SLUS_014.04/$TITLE_ID/ "Digimon Rumble Arena (USA).cat"
+psxbuild -c "Digimon Rumble Arena (USA).cat" TrueOG.bin
 
 # restore clean SYSTEM.CNF + .cat
-rm "Digimon Rumble Arena (US)/SYSTEM.CNF"
-rm "Digimon Rumble Arena (US).cat"
-cp "Digimon Rumble Arena (US)/SYSTEM.bak" "Digimon Rumble Arena (US)/SYSTEM.CNF"
-cp "Digimon Rumble Arena (US).bak" "Digimon Rumble Arena (US).cat"
-rm "Digimon Rumble Arena (US)/SYSTEM.bak"
-rm "Digimon Rumble Arena (US).bak"
+rm "Digimon Rumble Arena (USA)/SYSTEM.CNF"
+rm "Digimon Rumble Arena (USA).cat"
+mv "Digimon Rumble Arena (USA)/SYSTEM.bak" "Digimon Rumble Arena (USA)/SYSTEM.CNF"
+mv "Digimon Rumble Arena (USA).bak" "Digimon Rumble Arena (USA).cat"
 
 # open output in emulator
 mednafen TrueOG.cue

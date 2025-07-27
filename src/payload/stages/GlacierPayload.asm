@@ -12,7 +12,7 @@ GlacierPlatform:
   ; nop (reused from below)
 
 GlacierFastFall:
-  nop
+  sw at,0x0004(v1);nop
   bne v0,r0,@@Skip
   nop
   addi v0,r0,0x2
@@ -26,7 +26,7 @@ GlacierNoIcicles:
   lw v0,lo(HazardsVar)(v0)
 
 
-
+; 800D4DE4 raise water less jank
 GlacierRaiseWater:
   lw at,lo(HazardsVar)(at)
   lw v1,0x1DD0(v0)  ; original instruction
