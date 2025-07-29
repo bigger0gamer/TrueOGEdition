@@ -3,12 +3,11 @@
 # So you can easily rename the Title ID by just changing this variable and rebuilding
 # I recommend keeping something placeholder sounding while dev/testing, like TRUE_OGD.EV
 TITLE_ID='TRUE_OGD.EV'
-VERSION_STRING='TrueOG-DEV-BUILD'
+VERSION_STRING='True_OG-Development_Build'
 
 # armips
 sed s/TITLE_ID/$TITLE_ID/ TrueOG.asm > temp.asm
-sed -i s/VERSION_STRING/$VERSION_STRING/ temp.asm
-armips temp.asm
+armips -strequ VERSION_STRING $VERSION_STRING temp.asm 
 rm temp.asm
 
 # repack A.VFS
@@ -23,8 +22,6 @@ sed -i s/SLUS_014.04/$TITLE_ID/ "Digimon Rumble Arena (USA).cat"
 psxbuild -c "Digimon Rumble Arena (USA).cat" TrueOG.bin
 
 # restore clean SYSTEM.CNF + .cat
-rm "Digimon Rumble Arena (USA)/SYSTEM.CNF"
-rm "Digimon Rumble Arena (USA).cat"
 mv "Digimon Rumble Arena (USA)/SYSTEM.bak" "Digimon Rumble Arena (USA)/SYSTEM.CNF"
 mv "Digimon Rumble Arena (USA).bak" "Digimon Rumble Arena (USA).cat"
 

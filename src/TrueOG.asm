@@ -14,7 +14,7 @@
   ; (well, if you know what you're doing anyways lol)
   ; Like the title ID above, you should specify this string in build.sh
   .orga 0x90
-    .ascii "VERSION_STRING"
+    .ascii VERSION_STRING
 
 
   ; Custom Variable Labels

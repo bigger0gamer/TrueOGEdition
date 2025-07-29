@@ -35,5 +35,4 @@ echo 1,xa,J_014.xa,16,1,126 >> "Digimon Rumble Arena (USA)/A/A.csv"
 echo 1,xa,J_015.xa,16,1,124 >> "Digimon Rumble Arena (USA)/A/A.csv"
 cd "Digimon Rumble Arena (USA)"
 XAPacker A/A.csv
-rm A.XAP
 mv A_NEW.XAP A.XAP

@@ -9,7 +9,7 @@ RNG:
   slti v0,ra,16+6   ; if(MusicRNG !< 0x10)
   bne v0,r0,@@CharacterRNG
   lui v0,hi(CharacterRNGVar)
-  addi ra,ra,-10-6    ; then(MusicRNG -= 10)
+  addi ra,ra,-10-6  ; then(MusicRNG -= 10)
   
   @@CharacterRNG:
   lw ra,lo(CharacterRNGVar)(v0) :: .resetdelay
