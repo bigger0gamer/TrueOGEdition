@@ -12,18 +12,19 @@ rm temp.asm
 
 # repack A.VFS
 cd ../build\ env
-quickbms -w -r digimon_vfs2.bms "Digimon Rumble Arena (USA)/A.VFS" "Digimon Rumble Arena (USA)/inject"
+quickbms -Q -w -r digimon_vfs2.bms "Digimon Rumble Arena (USA)/A.VFS" "Digimon Rumble Arena (USA)/inject"
 
 # edit SYSTEM.CNF + .cat & psxbuild
 cp "Digimon Rumble Arena (USA)/SYSTEM.CNF" "Digimon Rumble Arena (USA)/SYSTEM.bak"
 sed -i s/SLUS_014.04/$TITLE_ID/ "Digimon Rumble Arena (USA)/SYSTEM.CNF"
-cp "Digimon Rumble Arena (USA).cat" "Digimon Rumble Arena (USA).bak"
-sed -i s/SLUS_014.04/$TITLE_ID/ "Digimon Rumble Arena (USA).cat"
-psxbuild -c "Digimon Rumble Arena (USA).cat" TrueOG.bin
+cp "Digimon Rumble Arena (USA).xml" "Digimon Rumble Arena (USA).bak"
+sed -i s/SLUS_014.04/$TITLE_ID/ "Digimon Rumble Arena (USA).xml"
+sed -i s/SLUS_014.04/$TITLE_ID/ "Digimon Rumble Arena (USA).xml"
+mkpsxiso -y -q -o TrueOG.bin -c TrueOG.cue -l $TITLE_ID "Digimon Rumble Arena (USA).xml"
 
 # restore clean SYSTEM.CNF + .cat
 mv "Digimon Rumble Arena (USA)/SYSTEM.bak" "Digimon Rumble Arena (USA)/SYSTEM.CNF"
-mv "Digimon Rumble Arena (USA).bak" "Digimon Rumble Arena (USA).cat"
+mv "Digimon Rumble Arena (USA).bak" "Digimon Rumble Arena (USA).xml"
 
 # open output in emulator
-mednafen TrueOG.cue
+mednafen TrueOG.cue &> /dev/null

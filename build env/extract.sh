@@ -1,4 +1,4 @@
-psxrip "Digimon Rumble Arena (USA).cue"
+dumpsxiso "Digimon Rumble Arena (USA).bin"
 mkdir cleanROM
 mv "Digimon Rumble Arena (USA).cue" cleanROM
 mv "Digimon Rumble Arena (USA).bin" cleanROM
@@ -10,11 +10,10 @@ cd "Digimon Rumble Arena (USA)"
 XAPacker A.XAP
 cd ..
 
-psxrip "DigimonTamers - Battle Evolution (Japan).cue"
+dumpsxiso "DigimonTamers - Battle Evolution (Japan).bin"
 mv "DigimonTamers - Battle Evolution (Japan).cue" cleanROM
 mv "DigimonTamers - Battle Evolution (Japan).bin" cleanROM
-rm "DigimonTamers - Battle Evolution (Japan).sys"
-rm "DigimonTamers - Battle Evolution (Japan).cat"
+rm "DigimonTamers - Battle Evolution (Japan).xml"
 cd "DigimonTamers - Battle Evolution (Japan)"
 mv A.XAP J.XAP
 XAPacker J.XAP

@@ -87,6 +87,10 @@
   ; Disable 5 Round Limit (removes branch)
   .org 0x800712A8
     nop
+  
+  ; Basketball & Digi Contest 30 second timer
+  .org 0x800D0730
+    .halfword 0x384
 
 .close
 

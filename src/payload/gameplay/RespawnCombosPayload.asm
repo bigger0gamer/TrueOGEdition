@@ -15,3 +15,13 @@ RespawnCombo:
   @@branch:
   j RespawnComboReturn      ; Return back to game.bin
   nop
+
+NewRespawnCombo:
+  lw v0,lo(RespawnVar)(v0)
+  lw ra,0x0024(sp)  ; orig instruction
+  beq v0,r0,@@Skip
+  addiu v0,r0,3
+  addiu v0,r0,17
+  @@Skip:
+  j RespawnComboReturn
+  nop

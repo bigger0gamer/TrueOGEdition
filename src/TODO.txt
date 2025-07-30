@@ -1,6 +1,5 @@
 TODO LIST:
  - Maybe change custom variables to use only a single byte (but that's effort though :P)
- - Change respawn combos off to increase the respawn invinciblity instead of changing respawn from launched to knockdown
  - Stage striking
  
  - TO Lockout features
@@ -10,9 +9,6 @@ TODO LIST:
    - Prevent altering handicap from 8/8
    - Prevent picking banned stages
    - 2 second hold delay on pausing
- 
- - Reduce Basketball Timer to 30 seconds if hazards off
-   - 800D0730 is in st07.bin and is time, just adjust this
  
  - Make Glacier No Bottom less jank
    - Convienent that it teleports to 0, but the jump looks odd
@@ -33,3 +29,5 @@ WHATS NEW:
  - Improved Recycling, Revolution, Glacier
  - Added Basketball to 2P VS
  - Added JP 2P VS Music *in addition* to all the US Music!!!!! (Huge thank you to Nagtan!!!!!)
+ - Minigames all have 30 second timer
+ - Change respawn combos off to increase the respawn invinciblity instead of changing respawn from launched to knockdown
