@@ -9,18 +9,12 @@ TODO LIST:
    - Prevent altering handicap from 8/8
    - Prevent picking banned stages
    - 2 second hold delay on pausing
- 
- - Make Glacier No Bottom less jank
-   - Convienent that it teleports to 0, but the jump looks odd
+   
+   - Lava Destination :D
+   - Rewrite script for folder of music -> new A.XAP
 
 MAYBE LIST:
  - Using passwords as a custom cheat code screen
-   - SECRET
-   - LEGACY
-   - TOTORO
-   - WAKEUP
-   - BATEVO
-   - TRUEOG
  
 WHATS NEW:
  - :bt: on stage/minigame select in all modes, including character preview screen in 1P arcade mode
@@ -29,5 +23,6 @@ WHATS NEW:
  - Improved Recycling, Revolution, Glacier
  - Added Basketball to 2P VS
  - Added JP 2P VS Music *in addition* to all the US Music!!!!! (Huge thank you to Nagtan!!!!!)
+   - Also, there will be a bunch of custom music :D
  - Minigames all have 30 second timer
  - Change respawn combos off to increase the respawn invinciblity instead of changing respawn from launched to knockdown

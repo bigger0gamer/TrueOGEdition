@@ -31,8 +31,11 @@ GlacierRaiseWater:
   lw at,lo(HazardsVar)(at)
   lw v1,0x1DD0(v0)  ; original instruction
   bne at,r0,@@Skip
-  lui at,0
-  li at,0xFFFFFB00
+  nop
+  slti at,v1,0xFB00
+  bne at,r0,@@Skip
+  addi at,r0,2
+  sw at,0x048C(s7)
   @@Skip:
   j GlacierRaiseWaterReturn
-  slt at,v1,at
+  nop
