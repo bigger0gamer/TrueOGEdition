@@ -11,14 +11,14 @@ True OG Edition is a "Tournament Edition" style ROM hack for Digimon Rumble Aren
   - Everything Unlocked (No Save File)
   - Random Character (Press Start)
   - Random Stage (Press Start)
-  - Random Music
+  - New Music + Random Songs
   - Alternate Digimon Colors (Hold Select or R1, Select Digimon)
   - Allow Mirror Matches (Without Holding Select)
 - And more!
 
 ## How To Play
 
-Coming soon, to a releases page near you! (PPF patch file)
+Coming soon, to a releases page near you! (PPF and/or xdelta3 patch file)
 
 ## Building (Only 4 Hackers!)
 
@@ -28,17 +28,23 @@ If you only want to play the ROM hack, check the How To Play section. If you'd l
 
 You will need to install the following:
 
-- [armips](https://github.com/Kingcom/armips) v0.11 or newer
-- [psximager](https://github.com/cebix/psximager) v2.2 or newer
-- [quickbms](https://aluigi.altervista.org/quickbms.htm) v0.11.0 or newer
-- A PS1 emulator with debugger of your choice. I personally use [mednafen](https://mednafen.github.io/), but feel free to use whatever you'd like, but being able to launch a game from command line will be desired.
-- A text editor, probably.
+- Build ASM & bin/cue
+  - [armips](https://github.com/Kingcom/armips) v0.11 or newer
+  - [quickbms](https://aluigi.altervista.org/quickbms.htm) v0.12.0 or newer
+  - [mkpsxiso](https://github.com/Lameguy64/mkpsxiso) v2.10 or newer
+- Add custom music
+  - [XAPacker](https://github.com/N4gtan/XAPacker/actions/runs/16606526632#artifacts) commit 49be93f
+  - [psxavenc](https://github.com/WonderfulToolchain/psxavenc/releases/tag/v0.2.1) v0.2.1 (newer versions should work, but you will have to modify packxap.sh accordingly. 0.3.0 kept seg faulting on me.)
+  - You can ignore custom music if you'd like, but you will need to edit extract.sh and RNGGeneratorPayload.asm accordingly
+- IDK doesn't sound important
+  - A PS1 emulator with debugger of your choice. I personally use [mednafen](https://mednafen.github.io/), but feel free to use whatever you'd like, but being able to launch a game from command line will be desired.
+  - A text editor, probably.
 
 This project assumes you are using a flavor of Linux, and only provides bash scripts. Windows and MacOS will suffice, but you will have to make your own build script modeled after the included one.
 
 ### Setup the build environment
 
-You will need to provide a clean copy of Digimon Rumble Arena. Place it in the `/build env` dir, and run `/build env/extract.sh`, and everything should be setup for you.
+You will need to provide a clean copy of Digimon Rumble Arena & Digimon Tamers Battle Evolution. Place it in the `/build env` dir, and run `/build env/extract.sh`, and everything should be setup for you.
 
 ### Changing the Title ID
 
@@ -51,8 +57,8 @@ This should be as simple as running `/src/build.sh`, but the basic overview is t
 ```
 armips TrueOG.asm
 cd ../build\ env
-quickbms -w -r digimon_vfs2.bms "Digimon Rumble Arena (US)/A.VFS" "Digimon Rumble Arena (US)/inject"
-psxbuild -c "Digimon Rumble Arena (US).cat" TrueOG.bin
+quickbms -w -r digimon_vfs2.bms "Digimon Rumble Arena (USA)/A.VFS" "Digimon Rumble Arena (USA)/inject"
+mkpsxiso -o TrueOG.bin -c TrueOG.cue -l TRUE_OGD.EV "Digimon Rumble Arena (USA).xml"
 *open TrueOG.cue in your emulator here*
 ```
 
@@ -65,5 +71,7 @@ DarkChaosBlast - For making the QuickBMS script that made extracting and injecti
 The developer of mednafen - for making my favorite emulator by miles, especially for PS1. Thank you, anonymous coward.
 
 Kingcom - for making armips. Holy *fuck* is this such a great and powerful tool for PS1 ROM hacking. It is far and away better than what I was doing for previous versions of this hack, and I never could have made such a good tool on my own. Thank you.
+
+Nagtan - For making exactly the tool I needed, literally a month before I knew I needed it! Custom music wouldn't be possible without him!
 
 kjn1 & the writers of "The Secrets of Gameshark Hacking" - Though this project represents my modding efforts moving past long spaghetti cheat codes into a "proper" ROM hack, it's kjn1's Joker Command & Alt Digimon Color cheat codes that ultimatly got me inspired back in late 2020 to start improving DRA's competitive experience, and "The Secrets of Gameshark Hacking" was an invaluable resource back when "True OG Edition" was still just "the Netplay Pack".
