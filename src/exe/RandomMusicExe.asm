@@ -5,4 +5,4 @@
 .org 0x8001D704 :: ArcadeMusicReturn:  ; 1P Mode Music
 .org 0x8001D6FC
   j RandomMusic
-  lui v1,hi(MusicRNGVar)
+  lw v0,0x02b0(t1)

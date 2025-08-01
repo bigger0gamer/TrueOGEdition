@@ -6,9 +6,7 @@ TODO LIST:
      - 0x8006759C - prevent entering anything but 2P VS
        a0 = 801CED84 -> Entering 2P VS
    
-   - Lava Destination :D
    - P2 input fix?
-   - Random Music pick new song after each game in arcade mode bug fix
 
 MAYBE LIST:
  - Using passwords as a custom cheat code screen
@@ -17,7 +15,7 @@ WHATS NEW:
  - :bt: on stage/minigame select in all modes, including character preview screen in 1P arcade mode
  - Cyan flash when invincible
  - Yellow flash on stun
- - Improved Recycling, Revolution, Glacier
+ - Improved Recycling, Revolution, Glacier, Volcano
  - Added Basketball to 2P VS
  - Added JP 2P VS Music *in addition* to all the US Music!!!!! (Huge thank you to Nagtan!!!!!)
    - Also, there will be a bunch of custom music :D
