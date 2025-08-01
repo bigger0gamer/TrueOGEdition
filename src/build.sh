@@ -4,10 +4,11 @@
 # I recommend keeping something placeholder sounding while dev/testing, like TRUE_OGD.EV
 TITLE_ID='TRUE_OGD.EV'
 VERSION_STRING='True_OG-Development_Build'
+NUMBER_SONGS=$(cat NumberSongs.txt)
 
 # armips
 sed s/TITLE_ID/$TITLE_ID/ TrueOG.asm > temp.asm
-armips -strequ VERSION_STRING $VERSION_STRING temp.asm 
+armips -strequ VERSION_STRING $VERSION_STRING -equ NUMBER_SONGS $NUMBER_SONGS temp.asm 
 rm temp.asm
 
 # repack A.VFS

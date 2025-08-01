@@ -5,13 +5,10 @@ TODO LIST:
  - TO Lockout features
      - 0x8006759C - prevent entering anything but 2P VS
        a0 = 801CED84 -> Entering 2P VS
-   - Prevent picking banned characters
-   - Prevent altering handicap from 8/8
-   - Prevent picking banned stages
-   - 2 second hold delay on pausing
    
    - Lava Destination :D
-   - Rewrite script for folder of music -> new A.XAP
+   - P2 input fix?
+   - Random Music pick new song after each game in arcade mode bug fix
 
 MAYBE LIST:
  - Using passwords as a custom cheat code screen

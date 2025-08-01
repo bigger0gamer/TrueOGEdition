@@ -18,6 +18,7 @@
 
 
   ; Custom Variable Labels
+  NumberSongs equ NUMBER_SONGS
   .org 0x801FC8F0 :: PhysicsVar:
   .org 0x801FC8F4 :: ItemsVar:
   .org 0x801FC8F8 :: HazardsVar:
