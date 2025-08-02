@@ -8,7 +8,6 @@ mkdir "Digimon Rumble Arena (USA)/inject"
 mkdir "Digimon Rumble Arena (USA)/inject/bin"
 cd "Digimon Rumble Arena (USA)"
 XAPacker A.XAP
-mkdir A/ext
 cd ..
 
 dumpsxiso "DigimonTamers - Battle Evolution (Japan).bin"

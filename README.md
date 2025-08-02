@@ -33,7 +33,7 @@ You will need to install the following:
   - [quickbms](https://aluigi.altervista.org/quickbms.htm) v0.12.0 or newer
   - [mkpsxiso](https://github.com/Lameguy64/mkpsxiso) v2.10 or newer
 - Add custom music
-  - [XAPacker](https://github.com/N4gtan/XAPacker/actions/runs/16606526632#artifacts) commit 49be93f
+  - [XAPacker](https://github.com/N4gtan/XAPacker/releases/tag/v1.4) v1.4 or newer
   - [psxavenc](https://github.com/WonderfulToolchain/psxavenc/releases/tag/v0.2.1) v0.2.1 (newer versions should work, but you will have to modify packxap.sh accordingly. 0.3.0 kept seg faulting on me.)
   - You can ignore custom music if you'd like, but you will need to edit extract.sh and RNGGeneratorPayload.asm accordingly
 - IDK doesn't sound important
