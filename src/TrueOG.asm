@@ -31,6 +31,7 @@
   .org 0x801FC914 :: StateColor:
   .org 0x801FC920 :: Player2StatePointer:
   .org 0x801FC924 :: NoHazCustomVar:
+  .org 0x801FC928 :: TOLockdown:
   
   
   ; First, we need to start with any data that needs to be modified in SLUS_014.04 itself
