@@ -23,28 +23,3 @@ VolcanoFastFall:
   @@Skip:
   j VolcanoFastFallHazOffReturn
   nop
-
-LavaDestination:
-  lw at,lo(HazardsVar)(at)
-  lw v1,0x0014(sp)  ; original instruction
-  bne at,r0,@@Skip
-  slti at,v1,0xF800
-  beq at,r0,@@NoTouchy
-  lw v0,0x0310(s0)
-  nop
-  slti at,v0,0xFBB0
-  bne at,r0,@@NoTouchy
-  slti at,v0,0x0800
-  bne at,r0,@@Touchy
-  nop
-  
-  @@NoTouchy:
-  addi at,r0,2
-  sw at,0x048C(s0)
-  @@Touchy:
-  j LavaDestinationNoHazReturn
-  nop
-  
-  @@Skip:
-  j LavaDestinationHazReturn
-  nop

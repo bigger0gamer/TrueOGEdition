@@ -1,12 +1,11 @@
 TODO LIST:
  - Maybe change custom variables to use only a single byte (but that's effort though :P)
  - Stage striking
- 
  - TO Lockout features
-     - 0x8006759C - prevent entering anything but 2P VS
-       a0 = 801CED84 -> Entering 2P VS
-   
-   - P2 input fix?
+ - P2 input fix?
+ - Make Recycling Arm lower no haz (smack rookies)
+ - Revo revisions (see PTB01 below)
+ - Glacier no drop from middle plat
 
 MAYBE LIST:
  - Using passwords as a custom cheat code screen
@@ -21,3 +20,16 @@ WHATS NEW:
    - Also, there will be a bunch of custom music :D
  - Minigames all have 30 second timer
  - Change respawn combos off to increase the respawn invinciblity instead of changing respawn from launched to knockdown
+
+
+PTB01:
+ - Volcano was a failure, but had enough like to keep as like a hidden variant or something
+ - Toto fucking ruined Revo again. Damn Dukemon and spinning the stage on purpose.
+   - Either add invinc after spin + spinning punishment, or make plats unlandable
+ - Glacier had mixed reception, mostly meh
+ - Recycling was well liked! Thank god!
+   - Try and make arm lower so it can smack rookies
+ - Need more/better suggestions for custom music...
+ - State visualizer & tweaked no respawn combos went without much attention, must be fine :P
+ - People liked :bt: to leave stage select, as expected
+ - People think basketball is neat, should work for RPS replacement in netplay just fine probably

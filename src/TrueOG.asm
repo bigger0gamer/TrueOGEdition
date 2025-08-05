@@ -59,6 +59,7 @@
   .include "payload/stages/VolcanoPayload.asm"
   .include "payload/RNGGeneratorPayload.asm"
   .include "payload/CharacterSelectCommandsPayload.asm"
+  .include "payload/TOLockdownPayload.asm"
   
   
   ; I don't have an exact calculation of available space for the payload,
@@ -105,6 +106,7 @@
   .include "title/MiscQoLTitle.asm"
   .include "title/CharacterSelectCommandsTitle.asm"
   .include "title/RNGGeneratorTitle.asm"
+  .include "title/TOLockdownTitle.asm"
 
 .close
 
@@ -112,8 +114,7 @@
 
 ; st00.bin - Garbage Recycling Center
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st00.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st00.bin",0x800D3B00
-  ;.include "st0X/RecycSt.asm"
-  .include "st0X/RecycSt2.asm"
+  .include "st0X/RecycSt.asm"
 .close
 
 ; st01.bin - Wilderness
