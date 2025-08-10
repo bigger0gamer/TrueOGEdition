@@ -1,7 +1,7 @@
 .psx
 
 RevolutionNoHazards:
-  lw v0,lo(HazardsVar)(v0)
+  lbu v0,lo(HazardsVar)(v0)
   nop
   beq v0,r0,@@Skip
   nop
@@ -21,7 +21,7 @@ RevoSpinCooldown:
 
 ForceSpinCounterReset:
   lui at,hi(NoHazCustomVar)
-  lw at,lo(HazardsVar)(at) :: .resetdelay
+  lbu at,lo(HazardsVar)(at) :: .resetdelay
   sw r0,lo(NoHazCustomVar)(at)
   bne at,r0,@@Skip
   li at,0x80073320
@@ -37,7 +37,7 @@ ForceSpinCounterReset:
   
 
 RevoFauxCeiling:
-  lw at,lo(HazardsVar)(at)
+  lbu at,lo(HazardsVar)(at)
   nop
   beq at,r0,@@NoHazards
   nop

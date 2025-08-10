@@ -1,5 +1,4 @@
 TODO LIST:
- - Maybe change custom variables to use only a single byte (but that's effort though :P)
  - Stage striking
  - TO Lockout features
  - P2 input fix?

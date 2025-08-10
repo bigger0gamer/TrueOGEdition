@@ -13,7 +13,7 @@ VolcanoNoErupt:
 
 VolcanoFastFall:
   lui v0,hi(HazardsVar)
-  lw v0,lo(HazardsVar)(v0)
+  lbu v0,lo(HazardsVar)(v0)
   nop
   beq v0,r0,@@Skip
   addi v0,r0,0x7fff

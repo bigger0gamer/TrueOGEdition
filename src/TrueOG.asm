@@ -18,21 +18,28 @@
 
 
   ; Custom Variable Labels
-  NumberSongs equ NUMBER_SONGS
-  .org 0x801FC8F0 :: PhysicsVar:
-  .org 0x801FC8F4 :: ItemsVar:
-  .org 0x801FC8F8 :: HazardsVar:
-  .org 0x801FC8FC :: MusicRNGVar:
-  .org 0x801FC900 :: CharacterRNGVar:
-  .org 0x801FC904 :: StageRNGVar:
-  .org 0x801FC908 :: RespawnVar:
-  .org 0x801FC90C :: Color1PVar:
-  .org 0x801FC910 :: Color2PVar:
-  .org 0x801FC914 :: StateColor:
-  .org 0x801FC920 :: Player2StatePointer:
-  .org 0x801FC924 :: NoHazCustomVar:
-  .org 0x801FC928 :: TOLockdown:
-  .org 0x801FC92C :: CharacterStageBans:
+   ; Constants
+   NumberSongs equ NUMBER_SONGS
+   
+   ; 1 byte vars
+   .org 0x801FC8F0 :: PhysicsVar:
+   .org 0x801FC8F1 :: ItemsVar:
+   .org 0x801FC8F2 :: HazardsVar:
+   .org 0x801FC8F3 :: RespawnVar:
+   .org 0x801FC8F4 :: MusicRNGVar:
+   .org 0x801FC8F5 :: CharacterRNGVar:
+   .org 0x801FC8F6 :: StageRNGVar:
+   .org 0x801FC8F7 :: Color1PVar:
+   .org 0x801FC8F8 :: Color2PVar:
+   .org 0x801FC8F9 :: TOLockdown:
+   
+   ; 12 byte var
+   .org 0x801FC900 :: StateColor:
+   
+   ; 4 byte vars
+   .org 0x801FC90C :: CharacterStageBans:
+   .org 0x801FC910 :: NoHazCustomVar:
+   .org 0x801FC914 :: Player2StatePointer:
   
   
   ; First, we need to start with any data that needs to be modified in SLUS_014.04 itself

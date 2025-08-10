@@ -12,7 +12,7 @@
   .org 0x800D4DC4 :: GlacierFastFallCut:
     lui v0,hi(HazardsVar)
     j GlacierFastFall
-    lw v0,lo(HazardsVar)(v0)
+    lbu v0,lo(HazardsVar)(v0)
   
   ; No Icicles
   .org 0x800D500C :: GlacierNoIciclesReturn:
@@ -21,7 +21,7 @@
   .org 0x800D5348
     sll s2,s4,4
     lui v0,hi(HazardsVar)
-    lw v0,lo(HazardsVar)(v0)
+    lbu v0,lo(HazardsVar)(v0)
 
 
 

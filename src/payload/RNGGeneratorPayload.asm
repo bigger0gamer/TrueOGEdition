@@ -3,7 +3,7 @@
 RNG:
   ; Music RNG
   lui ra,hi(MusicRNGVar)
-  lw ra,lo(MusicRNGVar)(ra)
+  lbu ra,lo(MusicRNGVar)(ra)
   sw v0,0x00a4(s0)  ; original instruction
   addi ra,ra,0x1    ; MusicRNG++
   slti v0,ra,16+6+NumberSongs   ; if(MusicRNG !< 0x10)
@@ -12,8 +12,8 @@ RNG:
   addi ra,ra,-10-6-NumberSongs  ; then(MusicRNG -= 10)
   
   @@CharacterRNG:
-  lw ra,lo(CharacterRNGVar)(v0) :: .resetdelay
-  sw ra,lo(MusicRNGVar)(v0)
+  lbu ra,lo(CharacterRNGVar)(v0) :: .resetdelay
+  sb ra,lo(MusicRNGVar)(v0)
   addi ra,ra,0x1   ; CharacterRNG++
   slti v0,ra,0x18  ; if(CharacterRNG !< 0x18)
   bne v0,r0,@@StageRNG
@@ -21,8 +21,8 @@ RNG:
   addi ra,ra,-24   ; then(CharacterRNG -= 0x18)
   
   @@StageRNG:
-  lw ra,lo(StageRNGVar)(v0) :: .resetdelay
-  sw ra,lo(CharacterRNGVar)(v0)
+  lbu ra,lo(StageRNGVar)(v0) :: .resetdelay
+  sb ra,lo(CharacterRNGVar)(v0)
   addi ra,ra,0x1   ; StageRNG++
   slti v0,ra,0x7   ; if(StageRNG !< 0x7)
   bne v0,r0,@@Return
@@ -31,4 +31,4 @@ RNG:
   
   @@Return:
   j RNGReturn
-  sw ra,lo(StageRNGVar)(v0)
+  sb ra,lo(StageRNGVar)(v0)

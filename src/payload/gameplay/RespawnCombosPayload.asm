@@ -6,7 +6,7 @@
 
 ; Main function!
 RespawnCombo:
-  lw a1,lo(RespawnVar)(a1)  ; Load respawn combo setting
+  lbu a1,lo(RespawnVar)(a1)  ; Load respawn combo setting
   addu a0,s1,r0             ; orig instruction
   beq a1,r0,@@branch        ; If 0, we skip the instruction that disables respawns
   lui a1,0x4000             ; Gives respawns original "launcher" property
@@ -17,7 +17,7 @@ RespawnCombo:
   nop
 
 NewRespawnCombo:
-  lw v0,lo(RespawnVar)(v0)
+  lbu v0,lo(RespawnVar)(v0)
   lw ra,0x0024(sp)  ; orig instruction
   beq v0,r0,@@Skip
   addiu v0,r0,3

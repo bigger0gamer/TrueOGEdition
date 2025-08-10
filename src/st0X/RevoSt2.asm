@@ -18,7 +18,7 @@
 .org 0x800D4C90
   lui v0,hi(HazardsVar)
   j RevoSpinCooldown
-  lw v0,lo(HazardsVar)(v0)
+  lbu v0,lo(HazardsVar)(v0)
 
 ; So that it's always 0 at the start of round
 .org 0x800D45B4 :: ForceSpinCounterResetReturn:

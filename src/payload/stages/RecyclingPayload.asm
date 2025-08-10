@@ -1,7 +1,7 @@
 .psx
 
 RecyclingTeleporter:
-  lw v0,lo(HazardsVar)(v0)
+  lbu v0,lo(HazardsVar)(v0)
   nop
   beq v0,r0,@@Skip
   addi v0,r0,0x7FFF  ; Force Teleporter closed
@@ -11,7 +11,7 @@ RecyclingTeleporter:
   nop
 
 RecyclingPlatform:
-  lw v1,lo(HazardsVar)(v1)
+  lbu v1,lo(HazardsVar)(v1)
   nop
   beq v1,r0,@@Skip
   lw v1, 0x0d68(s3)
@@ -23,7 +23,7 @@ RecyclingPlatform:
 
 RecyclingArm:
   lui a0,hi(HazardsVar)
-  lw a0,lo(HazardsVar)(a0)
+  lbu a0,lo(HazardsVar)(a0)
   nop
   bne a0,r0,@@Skip
   nop
@@ -33,7 +33,7 @@ RecyclingArm:
   addu a0,s0,r0
 
 RecyclingArmGrabAir:
-  lw v0,lo(HazardsVar)(v0)
+  lbu v0,lo(HazardsVar)(v0)
   nop
   beq v0,r0,@@SkipCrate
   addiu a0,r0,0
@@ -46,7 +46,7 @@ RecyclingArmGrabAir:
 
 RecyclingCrateCounter:
   lui at,hi(HazardsVar)
-  lw at,lo(HazardsVar)(at)
+  lbu at,lo(HazardsVar)(at)
   nop
   bne at,r0,@@SkipEarlyReset
   slti at,v0,4
@@ -60,14 +60,14 @@ RecyclingCrateCounter:
 
 RecyclingConveyers:
   lui at,hi(HazardsVar)
-  lw at,lo(HazardsVar)(at)
+  lbu at,lo(HazardsVar)(at)
   nop
   slti at,at,1
   j RecyclingConveyersReturn
   sw at,0x0EFC(s0)
 
 RecyclingArmUnblockable:
-  lw at,lo(HazardsVar)(at)
+  lbu at,lo(HazardsVar)(at)
   nop
   bne at,r0,@@Blockable
   lui a1,0x8000
