@@ -32,6 +32,7 @@
   .org 0x801FC920 :: Player2StatePointer:
   .org 0x801FC924 :: NoHazCustomVar:
   .org 0x801FC928 :: TOLockdown:
+  .org 0x801FC92C :: CharacterStageBans:
   
   
   ; First, we need to start with any data that needs to be modified in SLUS_014.04 itself
@@ -48,6 +49,8 @@
   .include "MovePayload.asm"
   
   ; and now, everything inside the payload!
+  .include "payload/RNGGeneratorPayload.asm"
+  .include "payload/CharacterSelectCommandsPayload.asm"
   .include "payload/gameplay/RespawnCombosPayload.asm"
   .include "payload/gameplay/NoItemsPayload.asm"
   .include "payload/gameplay/PhysicsPayload.asm"
@@ -58,9 +61,7 @@
   .include "payload/stages/SanctuaryPayload.asm"
   .include "payload/stages/GlacierPayload.asm"
   .include "payload/stages/VolcanoPayload.asm"
-  .include "payload/RNGGeneratorPayload.asm"
-  .include "payload/CharacterSelectCommandsPayload.asm"
-  .include "payload/TOLockdownPayload.asm"
+  .include "payload/TOLockdown/CharacterBansPayload.asm"
   
   
   ; I don't have an exact calculation of available space for the payload,
