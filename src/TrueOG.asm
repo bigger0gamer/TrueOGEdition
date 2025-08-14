@@ -69,6 +69,8 @@
   .include "payload/stages/GlacierPayload.asm"
   .include "payload/stages/VolcanoPayload.asm"
   .include "payload/TOLockdown/CharacterBansPayload.asm"
+  .include "payload/TOLockdown/StageBansPayload.asm"
+  .include "payload/TOLockdown/HandicapLockdownPayload.asm"
   
   
   ; I don't have an exact calculation of available space for the payload,
