@@ -20,6 +20,8 @@
   ; Custom Variable Labels
    ; Constants
    NumberSongs equ NUMBER_SONGS
+   .org 0x80037010 :: RNGFunc:
+   .org 0x8005EE48 :: RNGPointer:
    
    ; 1 byte vars
    .org 0x801FC8F0 :: PhysicsVar:
@@ -40,6 +42,9 @@
    .org 0x801FC90C :: CharacterStageBans:
    .org 0x801FC910 :: NoHazCustomVar:
    .org 0x801FC914 :: Player2StatePointer:
+   .org 0x801FC918 :: CharacterRNGHistory:
+   .org 0x801FC91C :: StageRNGHistory:
+   .org 0x801FC920 :: MusicRNGHistory:
   
   
   ; First, we need to start with any data that needs to be modified in SLUS_014.04 itself

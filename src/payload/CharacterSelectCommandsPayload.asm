@@ -3,8 +3,11 @@
 RandomCharacter:
   andi t0,s0,0x0800
   beq t0,r0,@@Skip
-  lui t0,hi(CharacterRNGVar)
-  lbu v0,lo(CharacterRNGVar)(t0)
+  ;lui t0,hi(CharacterRNGVar)
+  ;lbu v0,lo(CharacterRNGVar)(t0)
+  li t1,CharacterRNGHistory
+  jal NewRNG
+  addi t0,r0,24
   @@Skip:
   j RandomCharacterReturn
   sw v0,0x0018(s2)
