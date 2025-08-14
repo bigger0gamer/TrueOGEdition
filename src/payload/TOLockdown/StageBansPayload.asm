@@ -8,6 +8,8 @@
 ; s3 s5 - player inputs
 ; s4 - ?
 
+; sra?
+
 StageBans:
   lui at,hi(CharacterStageBans)
   lw at,lo(CharacterStageBans)(at)
