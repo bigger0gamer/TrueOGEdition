@@ -53,7 +53,7 @@ RNG:
 NewRNG:
   ; method prep
   add at,ra,r0
-  addi t6,r0,6
+  addi t6,r0,5
   
   ; call RNG func
   @@Retry:

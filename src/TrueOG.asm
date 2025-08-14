@@ -28,12 +28,12 @@
    .org 0x801FC8F1 :: ItemsVar:
    .org 0x801FC8F2 :: HazardsVar:
    .org 0x801FC8F3 :: RespawnVar:
-   .org 0x801FC8F4 :: MusicRNGVar:
-   .org 0x801FC8F5 :: CharacterRNGVar:
-   .org 0x801FC8F6 :: StageRNGVar:
-   .org 0x801FC8F7 :: Color1PVar:
-   .org 0x801FC8F8 :: Color2PVar:
-   .org 0x801FC8F9 :: TOLockdown:
+   .org 0x801FC8F4 :: Color1PVar:
+   .org 0x801FC8F5 :: Color2PVar:
+   .org 0x801FC8F6 :: TOLockdown:
+   .org 0x801FC8F7 :: MusicRNGVar:
+   .org 0x801FC8F8 :: CharacterRNGVar:
+   .org 0x801FC8F9 :: StageRNGVar:
    
    ; 12 byte var
    .org 0x801FC900 :: StateColor:

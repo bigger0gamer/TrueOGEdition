@@ -3,8 +3,6 @@
 RandomCharacter:
   andi t0,s0,0x0800
   beq t0,r0,@@Skip
-  ;lui t0,hi(CharacterRNGVar)
-  ;lbu v0,lo(CharacterRNGVar)(t0)
   li t1,CharacterRNGHistory
   jal NewRNG
   addi t0,r0,24
@@ -19,10 +17,12 @@ RandomStage:
   bne v0,r0,@@Skip
   andi t0,s5,0x0800
   beq t0,r0,@@Skip
-  lui t0,hi(StageRNGVar)
-  lbu t0,lo(StageRNGVar)(t0)
+  li t1,StageRNGHistory
+  jal NewRNG
+  addi t0,r0,7
   sw r0,0x00a8(s1)
-  sw t0,0x01ac(s1)
+  sw v0,0x01ac(s1)
+  lui v0,0
   @@Skip:
   j RandomStageReturn
   nop
