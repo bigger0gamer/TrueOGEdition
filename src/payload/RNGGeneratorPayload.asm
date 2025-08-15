@@ -38,6 +38,7 @@ RNG:
 ; arguments:
 ; t0 - RNG range of [0, X)
 ; t1 - base address for RNG history
+; t7 - can be used to keep ra safe before calling this method
 
 ; returns:
 ; v0 - random number

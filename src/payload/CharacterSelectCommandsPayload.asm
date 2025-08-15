@@ -29,15 +29,21 @@ RandomStage:
 
 
 RandomMusic:
-  lui v1,hi(MusicRNGVar)
-  lbu v1,lo(MusicRNGVar)(v1)
+  lui t1,hi(MusicRNGHistory)
   beq v0,r0,@@ArcadeMusic
+  addi t1,t1,lo(MusicRNGHistory)
+  add t7,ra,r0
+  jal NewRNG
+  addi t0,r0,10+6+NumberSongs
+  add ra,t7,r0
+  addi v1,v0,6
   slti v0,v1,0xA
   beq v0,r0,@@NoArcadeMusic
   addi v0,r0,6
   beq v0,v1,@@NoArcadeMusic
   nop
   @@ArcadeMusic:
+  addiu a0,r0,0xC
   j ArcadeMusicReturn
   add v0,r0,r0
   @@NoArcadeMusic:
