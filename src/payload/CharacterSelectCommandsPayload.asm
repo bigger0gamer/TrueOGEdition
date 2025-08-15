@@ -15,6 +15,12 @@ RandomStage:
   bne t0,r0,StageSelectToMainMenu
   andi v0,v0,0x0008  ; original instruction
   bne v0,r0,@@Skip
+  andi t0,s5,0x0040
+  beq t0,r0,@@RandomStage
+  li t1,MusicRNGHistory
+  jal NewRNG
+  addi t0,r0,10+6+NumberSongs
+  @@RandomStage:
   andi t0,s5,0x0800
   beq t0,r0,@@Skip
   li t1,StageRNGHistory
@@ -29,14 +35,11 @@ RandomStage:
 
 
 RandomMusic:
-  lui t1,hi(MusicRNGHistory)
+  lui v1,hi(MusicRNGHistory)
   beq v0,r0,@@ArcadeMusic
-  addi t1,t1,lo(MusicRNGHistory)
-  add t7,ra,r0
-  jal NewRNG
-  addi t0,r0,10+6+NumberSongs
-  add ra,t7,r0
-  addi v1,v0,6
+  lbu v1,lo(MusicRNGHistory)(v1)
+  nop
+  addi v1,v1,6
   slti v0,v1,0xA
   beq v0,r0,@@NoArcadeMusic
   addi v0,r0,6

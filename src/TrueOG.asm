@@ -31,9 +31,6 @@
    .org 0x801FC8F4 :: Color1PVar:
    .org 0x801FC8F5 :: Color2PVar:
    .org 0x801FC8F6 :: TOLockdown:
-   .org 0x801FC8F7 :: MusicRNGVar:
-   .org 0x801FC8F8 :: CharacterRNGVar:
-   .org 0x801FC8F9 :: StageRNGVar:
    
    ; 12 byte var
    .org 0x801FC900 :: StateColor:
@@ -121,7 +118,6 @@
   .include "title/OptionsMenuVariableRedirectsTitle.asm"
   .include "title/MiscQoLTitle.asm"
   .include "title/CharacterSelectCommandsTitle.asm"
-  .include "title/RNGGeneratorTitle.asm"
   .include "title/TOLockdownTitle.asm"
 
 .close
