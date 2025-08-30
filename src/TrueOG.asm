@@ -22,6 +22,7 @@
    NumberSongs equ NUMBER_SONGS
    .org 0x80037010 :: RNGFunc:
    .org 0x8005EE48 :: RNGPointer:
+   .org 0x80107744 :: Player1StatePointer:
    
    ; 1 byte vars
    .org 0x801FC8F0 :: PhysicsVar:

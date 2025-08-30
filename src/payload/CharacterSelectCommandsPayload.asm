@@ -4,7 +4,7 @@ RandomCharacter:
   andi t0,s0,0x0800
   beq t0,r0,@@Skip
   li t1,CharacterRNGHistory
-  jal NewRNG
+  jal RNG
   addi t0,r0,24
   @@Skip:
   j RandomCharacterReturn
@@ -18,13 +18,13 @@ RandomStage:
   andi t0,s5,0x0040
   beq t0,r0,@@RandomStage
   li t1,MusicRNGHistory
-  jal NewRNG
+  jal RNG
   addi t0,r0,10+6+NumberSongs
   @@RandomStage:
   andi t0,s5,0x0800
   beq t0,r0,@@Skip
   li t1,StageRNGHistory
-  jal NewRNG
+  jal RNG
   addi t0,r0,7
   sw r0,0x00a8(s1)
   sw v0,0x01ac(s1)

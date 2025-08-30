@@ -22,9 +22,6 @@
 
 
 
-; 800D6268 800D62B0 800D64A4 nop
-; 800DA0F4 lui a1,0x9800
-
 ; Make arm grab air (no crate)
 .org 0x800D6240 :: RecyclingArmGrabAirReturn:
 .org 0x800D6238
@@ -37,12 +34,18 @@
   j RecyclingCrateCounter
 
 ; Make arm attack unblockable
-.org 0x800DA0F8 :: RecyclingArmUnblockableReturn:
+.org 0x801E7E28 :: RecyclingArmHeight:
+.org 0x800DA0F8 :: RecyclingArmPropertiesReturn:
 .org 0x800DA0F0
-  j RecyclingArmUnblockable
+  j RecyclingArmProperties
   lui at,hi(HazardsVar)
 
 ; conveyer belts always on
 .org 0x800D3FE0 :: RecyclingConveyersReturn:
 .org 0x800D3FD8
   j RecyclingConveyers
+
+; Makes never wait in no hazards
+.org 0x800D4FC0 :: RecyclingNoArmDelayReturn:
+.org 0x800D4FB8
+  j RecyclingNoArmDelay

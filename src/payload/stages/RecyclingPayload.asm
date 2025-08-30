@@ -66,13 +66,28 @@ RecyclingConveyers:
   j RecyclingConveyersReturn
   sw at,0x0EFC(s0)
 
-RecyclingArmUnblockable:
+RecyclingArmProperties:
   lbu at,lo(HazardsVar)(at)
   nop
   bne at,r0,@@Blockable
   lui a1,0x8000
+  lui at,hi(RecyclingArmHeight)
+  addi a1,r0,0xf490
+  sw a1,lo(RecyclingArmHeight)(at)
   lui a1,0x9800
+  addi a1,a1,0x3FFF
   
   @@Blockable:
-  j RecyclingArmUnblockableReturn
+  j RecyclingArmPropertiesReturn
   addu a0,s3,r0  ; original instruction
+
+RecyclingNoArmDelay:
+  lui at,hi(HazardsVar)
+  lbu at,lo(HazardsVar)(at)
+  nop
+  bne at,r0,@@HazardsOn
+  nop
+  lui a1,0
+  @@HazardsOn:
+  j RecyclingNoArmDelayReturn
+  nop

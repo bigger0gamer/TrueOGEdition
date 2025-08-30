@@ -13,14 +13,6 @@ MAYBE LIST:
    - 0x8003777C 0x80037B38 0x80037F34 0x80038060 checks passwords?
    - 0x8003836C -> 0x8012b864 after all the math, saves result?
    - fuck all that 0x80069D78 replace with own jal to make own func
- - Update RNG funcs to use game's RNG func
-   - 0x80037010
-    - a0: some sort of base address for the RNG
-    - v0: random number return variable
-    - ra: need to protect ofc
-    - t#: probably don't need to protect but seems to use them
-   - title.bin
-    - a0: 0x8005EE48
  
 WHATS NEW:
  - :bt: on stage/minigame select in all modes, including character preview screen in 1P arcade mode
@@ -32,6 +24,7 @@ WHATS NEW:
    - Also, there will be a bunch of custom music :D
  - Minigames all have 30 second timer
  - Change respawn combos off to increase the respawn invinciblity instead of changing respawn from launched to knockdown
+ - Updated RNG funcs to use game's RNG func
 
 
 PTB01:

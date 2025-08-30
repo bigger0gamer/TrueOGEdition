@@ -15,7 +15,7 @@
 ; t6 - number of retries
 ; ra - duh
 ; at - keeps ra safe here while calls RNG func
-NewRNG:
+RNG:
   ; method prep
   add at,ra,r0
   addi t6,r0,5
