@@ -15,20 +15,50 @@ RandomStage:
   bne t0,r0,StageSelectToMainMenu
   andi v0,v0,0x0008  ; original instruction
   bne v0,r0,@@Skip
+  
+  ; Random Music
   andi t0,s5,0x0040
   beq t0,r0,@@RandomStage
   li t1,MusicRNGHistory
+  addi s3,r0,0x0040
+  addi s5,r0,0x0040
   jal RNG
   addi t0,r0,10+6+NumberSongs
+  
+  ; Random Stage
   @@RandomStage:
   andi t0,s5,0x0800
-  beq t0,r0,@@Skip
+  beq t0,r0,@@StageStrikes
   li t1,StageRNGHistory
+  addi s3,r0,0x0800
+  addi s5,r0,0x0800
   jal RNG
   addi t0,r0,7
   sw r0,0x00a8(s1)
   sw v0,0x01ac(s1)
   lui v0,0
+  
+  ; Stage Strikes
+  @@StageStrikes:
+  andi t0,s5,0x0080
+  beq t0,r0,@@Skip
+  lui at,hi(NoHazCustomVar)
+  lw at,lo(NoHazCustomVar)(at)
+  lw v0,0x01AC(s1)
+  addi s3,r0,0x2000
+  addi s5,r0,0x2000
+  addi t0,r0,1
+  sll t0,t0,23
+  @@Loop:
+  sll t0,t0,1
+  bne v0,r0,@@Loop
+  addi v0,v0,-1
+  or at,at,t0
+  lui v0,hi(NoHazCustomVar)
+  sw at,lo(NoHazCustomVar)(v0)
+  lui v0,0
+  
+  ; Return to game code
   @@Skip:
   j RandomStageReturn
   nop
@@ -60,6 +90,10 @@ RandomMusic:
 
 
 AltColorsCSS:
+  lw at,lo(CharacterStageBans)(at)
+  lui v0,hi(NoHazCustomVar)
+  sw at,lo(NoHazCustomVar)(v0)
+  lui v0,0x8013
   addi v0,v0,0xAA50
   slt v0,v0,s2
   beq v0,r0,@@Skip

@@ -27,5 +27,5 @@
 
 .org 0x800D4D34 :: GlacierRaiseWaterReturn:
 .org 0x800D4D2C
-  j GlacierRaiseWater
-  lui at,hi(HazardsVar)
+;  j GlacierRaiseWater
+;  lui at,hi(HazardsVar)

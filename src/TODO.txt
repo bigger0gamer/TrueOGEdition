@@ -2,10 +2,8 @@ TODO LIST:
  - Stage striking
  - TO Lockout features
  - P2 input fix?
- - Make Recycling Arm lower no haz (smack rookies)
  - Revo revisions (see PTB01 below)
    - 0x800706F8 force respawn
- - Glacier no drop from middle plat
 
 MAYBE LIST:
  - Using passwords as a custom cheat code screen
@@ -18,7 +16,7 @@ WHATS NEW:
  - :bt: on stage/minigame select in all modes, including character preview screen in 1P arcade mode
  - Cyan flash when invincible
  - Yellow flash on stun
- - Improved Recycling, Revolution, Glacier
+ - Improved Recycling
  - Added Basketball to 2P VS
  - Added JP 2P VS Music *in addition* to all the US Music!!!!! (Huge thank you to Nagtan!!!!!)
    - Also, there will be a bunch of custom music :D

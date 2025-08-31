@@ -9,10 +9,10 @@
 ; reset custom var to 0
 .org 0x800D45B4 :: ForceSpinCounterResetReturn:
 .org 0x800D45AC
-  j RevoStartRoundVarsReset
+;  j RevoStartRoundVarsReset
 
 ; Force Respawn
 .org 0x800D4DAC :: RevoForceRespawnReturn:
 .org 0x800D4DA4
-  j RevoForceRespawn
-  lui at,hi(HazardsVar)
+;  j RevoForceRespawn
+;  lui at,hi(HazardsVar)

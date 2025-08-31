@@ -20,7 +20,7 @@
     andi a0,s4,0x0108
     sltu a0,r0,a0
     j AltColorsCSS
-    lui v0,0x8013
+    lui at,hi(CharacterStageBans)
   .org 0x80074938
     andi v0,s4,0x0004
   

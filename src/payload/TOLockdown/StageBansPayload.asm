@@ -11,8 +11,8 @@
 ; sra?
 
 StageBans:
-  lui at,hi(CharacterStageBans)
-  lw at,lo(CharacterStageBans)(at)
+  lui at,hi(NoHazCustomVar)
+  lw at,lo(NoHazCustomVar)(at)
   addi a0,v0,0
   srl at,at,23
   @@Loop:
