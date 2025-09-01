@@ -19,11 +19,16 @@ RandomStage:
   ; Random Music
   andi t0,s5,0x0040
   beq t0,r0,@@RandomStage
-  li t1,MusicRNGHistory
-  addi s3,r0,0x0040
-  addi s5,r0,0x0040
-  jal RNG
+  lui at,hi(TOLockdown)
+  lbu at,lo(TOLockdown)(at)
   addi t0,r0,10+6+NumberSongs
+  beq at,r0,@@AllMusic
+  addi s3,r0,0x0040
+  addi t0,r0,10
+  @@AllMusic:
+  li t1,MusicRNGHistory
+  jal RNG
+  addi s5,r0,0x0040
   
   ; Random Stage
   @@RandomStage:
