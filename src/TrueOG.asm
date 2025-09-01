@@ -49,6 +49,7 @@
   .include "exe/EverythingUnlockedExe.asm"
   .include "exe/RandomMusicExe.asm"
   .include "exe/AltColorExe.asm"
+  .include "exe/TOLockdownExe.asm"
   
   
   ; As most of the game's code can't be resized,
@@ -74,6 +75,7 @@
   .include "payload/TOLockdown/CharacterBansPayload.asm"
   .include "payload/TOLockdown/StageBansPayload.asm"
   .include "payload/TOLockdown/HandicapLockdownPayload.asm"
+  .include "payload/TOLockdown/MainMenuLockdownPayload.asm"
   
   
   ; I don't have an exact calculation of available space for the payload,
