@@ -41,7 +41,7 @@ RandomStage:
   ; Stage Strikes
   @@StageStrikes:
   andi t0,s5,0x0080
-  beq t0,r0,@@Skip
+  beq t0,r0,@@StrikeToLegalStages
   lui at,hi(NoHazCustomVar)
   lw at,lo(NoHazCustomVar)(at)
   lw v0,0x01AC(s1)
@@ -56,7 +56,30 @@ RandomStage:
   or at,at,t0
   lui v0,hi(NoHazCustomVar)
   sw at,lo(NoHazCustomVar)(v0)
+  lui t0,0xFF00
+  and at,at,t0
+  bne at,t0,@@StrikeToLegalStages
   lui v0,0
+  lui at,hi(CharacterStageBans)
+  lw t0,lo(CharacterStageBans)(at)
+  nop
+  sw t0,lo(NoHazCustomVar)(at)
+  
+  ; Immediatly strike down to just Recycling, Sanc, Glacier
+  @@StrikeToLegalStages:
+  andi t0,s5,0x0020
+  beq t0,r0,@@Skip
+  lui at,hi(TOLockdown)
+  lbu at,lo(TOLockdown)(at)
+  lui t0,0xE600
+  beq at,r0,@@Unlocked
+  lui at,hi(NoHazCustomVar)
+  lw t0,lo(CharacterStageBans)(at)
+  nop
+  @@Unlocked:
+  sw t0,lo(NoHazCustomVar)(at)
+  addi s3,r0,0x2000
+  addi s5,r0,0x2000
   
   ; Return to game code
   @@Skip:
