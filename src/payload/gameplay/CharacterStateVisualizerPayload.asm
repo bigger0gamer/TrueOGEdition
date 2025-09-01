@@ -49,8 +49,9 @@ CharacterStateVisualizer:
   addu a0,s1,r0
   li s0,StateColor
   add a1,s0,r0
-  sw s4,0x0000(s0)
   sw s4,0x0004(s0)
+  addi s4,s4,-0x0200
+  sw s4,0x0000(s0)
   j CharacterStateVisualizerReturn
   sw at,0x0008(s0)
   

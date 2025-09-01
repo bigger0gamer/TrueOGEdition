@@ -1,9 +1,5 @@
 TODO LIST:
- - Stage striking
  - TO Lockout features
- - P2 input fix?
- - Revo revisions (see PTB01 below)
-   - 0x800706F8 force respawn
 
 MAYBE LIST:
  - Using passwords as a custom cheat code screen
@@ -23,6 +19,7 @@ WHATS NEW:
  - Minigames all have 30 second timer
  - Change respawn combos off to increase the respawn invinciblity instead of changing respawn from launched to knockdown
  - Updated RNG funcs to use game's RNG func
+ - Stage Striking in game (:bs: strike stage, :bc: strike all banned)
 
 
 PTB01:
