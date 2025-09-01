@@ -23,6 +23,9 @@
    .org 0x80037010 :: RNGFunc:
    .org 0x8005EE48 :: RNGPointer:
    .org 0x80107744 :: Player1StatePointer:
+   .org 0x8011424C :: Player1HeldInputs:
+   .org 0x801142E4 :: Player2HeldInputs:
+   .org 0x80064E90 :: PauseTextPointer:
    
    ; 1 byte vars
    .org 0x801FC8F0 :: PhysicsVar:
@@ -76,6 +79,7 @@
   .include "payload/TOLockdown/StageBansPayload.asm"
   .include "payload/TOLockdown/HandicapLockdownPayload.asm"
   .include "payload/TOLockdown/MainMenuLockdownPayload.asm"
+  .include "payload/TOLockdown/PauseLockdownPayload.asm"
   
   
   ; I don't have an exact calculation of available space for the payload,
@@ -109,6 +113,10 @@
   ; Basketball & Digi Contest 30 second timer
   .org 0x800D0730
     .halfword 0x384
+  
+  ; "Continue" -> "1P Pause"
+  .org 0x80064E90
+    .ascii "1P Pause"
 
 .close
 
