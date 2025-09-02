@@ -1,6 +1,43 @@
 .psx
 
 RandomCharacter:
+  lui at,hi(CSSModePointer)
+  lw at,lo(CSSModePointer)(at)
+  addi t0,r0,0x25
+  bne at,t0,@@RandomCharacter
+  addi t0,r0,0x002C
+  and at,s4,t0
+  bne at,t0,@@SkipEnableTOLockdown
+  addi t0,r0,1
+  lui at,hi(TOLockdown)
+  sb t0,lo(TOLockdown)(at)
+  lui t0,0x7FFF
+  lui at,hi(Player1CursorFlash)
+  sw t0,lo(Player1CursorFlash)(at)
+  @@SkipEnableTOLockdown:
+  andi t0,s0,0x0080
+  beq t0,r0,@@RandomCharacter
+  lui at,hi(CharacterTable)
+  sll v0,v0,2
+  add at,at,v0
+  lw t0,lo(CharacterTable)(at)
+  srl v0,v0,2
+  slti t0,t0,1
+  sw t0,lo(CharacterTable)(at)
+  addi at,v0,0
+  addi t0,r0,1
+  @@Loop:
+  sll t0,t0,1
+  bne at,r0,@@Loop
+  addi at,at,-1
+  lui at,hi(CharacterStageBans)
+  lw at,lo(CharacterStageBans)(at)
+  srl t0,t0,1
+  xor t0,t0,at
+  lui at,hi(CharacterStageBans)
+  sw t0,lo(CharacterStageBans)(at)
+  
+  @@RandomCharacter:
   andi t0,s0,0x0800
   beq t0,r0,@@Skip
   li t1,CharacterRNGHistory
@@ -24,6 +61,10 @@ RandomStage:
   addi t0,r0,10+6+NumberSongs
   beq at,r0,@@AllMusic
   addi s3,r0,0x0040
+  lui at,hi(CSSModePointer)
+  lw at,lo(CSSModePointer)(at)
+  addi t0,r0,0x25
+  beq at,t0,StageSelectToMainMenu
   addi t0,r0,10
   @@AllMusic:
   li t1,MusicRNGHistory
@@ -142,6 +183,18 @@ AltColorsSSS:
 
 
 StageSelectToMainMenu:
+  lui at,hi(TOLockdown)
+  lbu at,lo(TOLockdown)(at)
+  lui t0,hi(CSSModePointer)
+  beq at,r0,@@Skip
+  lw at,lo(CSSModePointer)(t0)
+  addi t0,r0,0x25
+  bne at,t0,@@Skip
+  lui at,hi(NoHazCustomVar)
+  lw t0,lo(NoHazCustomVar)(at)
+  nop
+  sw t0,lo(CharacterStageBans)(at)
+  @@Skip:
   addi t0,r0,9
   sw t0,0x008C(s1)
   j RandomStageReturn

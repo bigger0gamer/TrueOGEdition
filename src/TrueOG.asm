@@ -26,6 +26,8 @@
    .org 0x8011424C :: Player1HeldInputs:
    .org 0x801142E4 :: Player2HeldInputs:
    .org 0x80064E90 :: PauseTextPointer:
+   .org 0x8012AAA4 :: CSSModePointer:
+   .org 0x8012AA5C :: Player1CursorFlash:
    
    ; 1 byte vars
    .org 0x801FC8F0 :: PhysicsVar:

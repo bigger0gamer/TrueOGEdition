@@ -1,5 +1,5 @@
 TODO LIST:
- - TO Lockout features
+- Lots of code cleanup lol
 
 MAYBE LIST:
  - Using passwords as a custom cheat code screen
@@ -20,6 +20,7 @@ WHATS NEW:
  - Change respawn combos off to increase the respawn invinciblity instead of changing respawn from launched to knockdown
  - Updated RNG funcs to use game's RNG func
  - Stage Striking in game (:bs: strike stage, :bc: strike all banned)
+ - TO Lockout features
 
 
 PTB01:

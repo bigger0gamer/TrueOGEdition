@@ -12,7 +12,7 @@ GlacierPlatform:
   ; nop (reused from below)
 
 GlacierFastFall:
-  sw at,0x0004(v1);nop
+  nop
   bne v0,r0,@@Skip
   nop
   addi v0,r0,0x2
