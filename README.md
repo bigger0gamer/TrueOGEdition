@@ -18,7 +18,7 @@ True OG Edition is a "Tournament Edition" style ROM hack for Digimon Rumble Aren
 
 ## How To Play
 
-Coming soon, to a releases page near you! (PPF and/or xdelta3 patch file)
+[Check out the releases page!](https://github.com/bigger0gamer/TrueOGEdition/releases/latest)
 
 ## Building (Only 4 Hackers!)
 
