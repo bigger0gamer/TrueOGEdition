@@ -3,34 +3,35 @@
 RevolutionNoHazards:
   lbu v0,lo(HazardsVar)(v0)
   nop
-  beq v0,r0,@@Skip
+  beq v0,r0,@@SkipHazards
   nop
+  j @@Return
   lw v0,0x0D48(s1)
-  @@Skip:
+  @@SkipHazards:
+  li v0,Player1StatePointer + 0x388
+  ;addi v0,v0,0x388
+  lw t7,0(v0)
+  nop
+  slt t7,t7,r0
+  beq t7,r0,@@Player2Check
+  nop
+  sw r0,0(v0)
+  @@Player2Check:
+  li v0,Player2StatePointer
+  lw v0,0(v0)
+  nop
+  beq v0,r0,@@Return
+  nop
+  addi v0,v0,0x388
+  lw t7,0(v0)
+  nop
+  slt t7,t7,r0
+  beq t7,r0,@@Resetv0
+  nop
+  sw r0,0(v0)
+  @@Resetv0:
+  add v0,r0,r0
+  
+  @@Return:
   j RevolutionNoHazardsReturn
-  nop
-
-RevoStartRoundVarsReset:
-  lui at,hi(NoHazCustomVar)
-  lbu at,lo(HazardsVar)(at) :: .resetdelay
-  sw r0,lo(NoHazCustomVar)(at)
-  bne at,r0,@@Skip
-  li at,0x80070720
-  addi s0,r0,0x2000
-  sh s0,0(at)
-  
-  @@Skip:
-  j ForceSpinCounterResetReturn
-  sw r0,0x0D48(s1)  ; original instruction
-
-RevoForceRespawn:
-  lbu at,lo(HazardsVar)(at)
-  nop
-  bne at,r0,@@Skip
-  lw v0,0x0004(a1)
-  jr ra
-  slti v0,v0,0xFF30
-  
-  @@Skip:
-  j RevoForceRespawnReturn
   nop

@@ -38,16 +38,18 @@
    .org 0x801FC8F5 :: Color2PVar:
    .org 0x801FC8F6 :: TOLockdown:
    
+   ; 16 byte vars
+   .org 0x801FC900 :: CharacterRNGHistory:
+   .org 0x801FC910 :: MusicRNGHistory:
+   
    ; 12 byte var
-   .org 0x801FC900 :: StateColor:
+   .org 0x801FC920 :: StateColor:
    
    ; 4 byte vars
-   .org 0x801FC90C :: CharacterStageBans:
-   .org 0x801FC910 :: NoHazCustomVar:
-   .org 0x801FC914 :: Player2StatePointer:
-   .org 0x801FC918 :: CharacterRNGHistory:
-   .org 0x801FC91C :: StageRNGHistory:
-   .org 0x801FC920 :: MusicRNGHistory:
+   .org 0x801FC92C :: CharacterStageBans:
+   .org 0x801FC930 :: NoHazCustomVar:
+   .org 0x801FC934 :: Player2StatePointer:
+   .org 0x801FC938 :: StageRNGHistory:
   
   
   ; First, we need to start with any data that needs to be modified in SLUS_014.04 itself
@@ -149,8 +151,7 @@
 
 ; st02.bin - Revolution
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st02.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st02.bin",0x800D3B00
-  ;.include "st0X/RevoSt.asm"
-  .include "st0X/RevoSt2.asm"
+  .include "st0X/RevoSt.asm"
 .close
 
 ; st03.bin - Sanctuary
