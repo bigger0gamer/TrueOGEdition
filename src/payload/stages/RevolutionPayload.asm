@@ -9,7 +9,6 @@ RevolutionNoHazards:
   lw v0,0x0D48(s1)
   @@SkipHazards:
   li v0,Player1StatePointer + 0x388
-  ;addi v0,v0,0x388
   lw t7,0(v0)
   nop
   slt t7,t7,r0
