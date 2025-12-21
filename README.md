@@ -11,7 +11,7 @@ True OG Edition is a "Tournament Edition" style ROM hack for Digimon Rumble Aren
   - Everything Unlocked (No Save File)
   - Random Character (Press Start)
   - Random Stage (Press Start)
-  - New Music + Random Songs
+  - New Songs + Random Music
   - Alternate Digimon Colors (Hold Select or R1, Select Digimon)
   - Allow Mirror Matches (Without Holding Select)
 - And more!
@@ -33,7 +33,7 @@ You will need to install the following:
   - [quickbms](https://aluigi.altervista.org/quickbms.htm) v0.12.0 or newer
   - [mkpsxiso](https://github.com/Lameguy64/mkpsxiso) v2.10 or newer
 - Add custom music
-  - [XAPacker](https://github.com/N4gtan/XAPacker/releases/tag/v1.4) v1.4 or newer
+  - [XAPacker](https://github.com/N4gtan/XAPacker) v1.5 or newer
   - [psxavenc](https://github.com/WonderfulToolchain/psxavenc/releases/tag/v0.2.1) v0.2.1 (newer versions should work, but you will have to modify packxap.sh accordingly. 0.3.0 kept seg faulting on me.)
   - You can ignore custom music if you'd like, but you will need to edit extract.sh and RNGGeneratorPayload.asm accordingly
 - IDK doesn't sound important
