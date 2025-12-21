@@ -54,7 +54,38 @@ RandomStage:
   andi v0,v0,0x0008  ; original instruction
   bne v0,r0,@@Skip
   
+  ; Finalize Stage Strike
+  lw t0,0xB4(s1)
+  addi v0,r0,0x20
+  beq t0,v0,@@RandomMusic
+  addi t0,t0,-1
+  bne t0,r0,@@ShrinkAnim
+  lui at,hi(NoHazCustomVar)
+  sw v0,0xB4(s1)
+  lw at,lo(NoHazCustomVar)(at)
+  lw v0,0x01AC(s1)
+  addi s3,r0,0x2000
+  addi s5,r0,0x2000
+  addi t0,r0,1
+  sll t0,t0,23
+  @@Loop:
+  sll t0,t0,1
+  bne v0,r0,@@Loop
+  addi v0,v0,-1
+  or at,at,t0
+  lui v0,hi(NoHazCustomVar)
+  sw at,lo(NoHazCustomVar)(v0)
+  lui t0,0xFF00
+  and at,at,t0
+  bne at,t0,@@StrikeToLegalStages
+  lui v0,0
+  lui at,hi(CharacterStageBans)
+  lw t0,lo(CharacterStageBans)(at)
+  nop
+  sw t0,lo(NoHazCustomVar)(at)
+  
   ; Random Music
+  @@RandomMusic:
   andi t0,s5,0x0040
   beq t0,r0,@@RandomStage
   lui at,hi(TOLockdown)
@@ -91,44 +122,30 @@ RandomStage:
   @@StageStrikes:
   andi t0,s5,0x0080
   beq t0,r0,@@StrikeToLegalStages
-  lui at,hi(NoHazCustomVar)
-  lw at,lo(NoHazCustomVar)(at)
-  lw v0,0x01AC(s1)
-  addi s3,r0,0x2000
-  addi s5,r0,0x2000
-  addi t0,r0,1
-  sll t0,t0,23
-  @@Loop:
-  sll t0,t0,1
-  bne v0,r0,@@Loop
-  addi v0,v0,-1
-  or at,at,t0
-  lui v0,hi(NoHazCustomVar)
-  sw at,lo(NoHazCustomVar)(v0)
-  lui t0,0xFF00
-  and at,at,t0
-  bne at,t0,@@StrikeToLegalStages
-  lui v0,0
-  lui at,hi(CharacterStageBans)
-  lw t0,lo(CharacterStageBans)(at)
-  nop
-  sw t0,lo(NoHazCustomVar)(at)
+  addi t0,r0,0x1F
+  sw t0,0xB4(s1)
+  addi s3,r0,0
+  addi s5,r0,0
   
-  ; Immediatly strike down to just Recycling, Sanc, Glacier
+  ; Reset stage strikes
   @@StrikeToLegalStages:
   andi t0,s5,0x0020
   beq t0,r0,@@Skip
-  lui at,hi(TOLockdown)
-  lbu at,lo(TOLockdown)(at)
-  lui t0,0xE600
-  beq at,r0,@@Unlocked
   lui at,hi(NoHazCustomVar)
   lw t0,lo(CharacterStageBans)(at)
-  nop
-  @@Unlocked:
+  addi v0,r0,2
   sw t0,lo(NoHazCustomVar)(at)
-  addi s3,r0,0x2000
-  addi s5,r0,0x2000
+  sw r0,0xB4(s1)
+  j @@Skip
+  sw v0,0xA8(s1)
+  ;addi s3,r0,0x2000
+  ;addi s5,r0,0x2000
+  
+  ; Shrink Anim
+  @@ShrinkAnim:
+  sw t0,0xB4(s1)
+  addi s3,r0,0
+  addi s5,r0,0
   
   ; Return to game code
   @@Skip:
