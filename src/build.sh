@@ -2,13 +2,13 @@
 # This will automatically rename armips output file, edit SYSTEM.CNF & mkpsxiso .xml all to match
 # So you can easily rename the Title ID by just changing this variable and rebuilding
 # I recommend keeping something placeholder sounding while dev/testing, like TRUE_OGD.EV
-TITLE_ID='TRUE_OG2.01'
-VERSION_STRING='TrueOG_v2_RC1'
+TITLE_ID='TRUE_OGD.EV'
+VERSION_STRING='TrueOG_DEV'
 NUMBER_SONGS=$(cat NumberSongs.txt)
 
 # armips
 sed s/TITLE_ID/$TITLE_ID/ TrueOG.asm > temp.asm
-armips -strequ VERSION_STRING $VERSION_STRING -equ NUMBER_SONGS $NUMBER_SONGS temp.asm 
+armips -strequ VERSION_STRING $VERSION_STRING -equ NUMBER_SONGS $NUMBER_SONGS temp.asm -sym fuck.sym
 rm temp.asm
 
 # repack A.VFS

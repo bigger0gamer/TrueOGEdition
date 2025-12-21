@@ -41,6 +41,7 @@ RandomCharacter:
   andi t0,s0,0x0800
   beq t0,r0,@@Skip
   li t1,CharacterRNGHistory
+  addi t7,r0,16
   jal RNG
   addi t0,r0,24
   @@Skip:
@@ -68,6 +69,7 @@ RandomStage:
   addi t0,r0,10
   @@AllMusic:
   li t1,MusicRNGHistory
+  addi t7,r0,16
   jal RNG
   addi s5,r0,0x0040
   
@@ -78,6 +80,7 @@ RandomStage:
   li t1,StageRNGHistory
   addi s3,r0,0x0800
   addi s5,r0,0x0800
+  addi t7,r0,4
   jal RNG
   addi t0,r0,7
   sw r0,0x00a8(s1)
