@@ -9,7 +9,7 @@
 ; On  = 1 x 3 = 3 items can be spawned on the stage at once
 
 NoItems:
-  lbu s2,lo(ItemsVar)(s2)  ; load items var
+  lbu s2,lo(GameplayVar)(s2)  ; load items var
   sw v1,0x0014(s3)         ; original instruction
   sll v0,s2,1              ; double items var -> v0
   add s2,s2,v0             ; items var + double items var = items var * 3

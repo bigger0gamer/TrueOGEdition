@@ -4,4 +4,4 @@
   .org 0x800C85D4 :: NoItemsReturn:
   .org 0x800C85CC
     j NoItems
-    lui s2,hi(ItemsVar)
+    lui s2,hi(GameplayVar)

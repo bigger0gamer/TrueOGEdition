@@ -1,7 +1,7 @@
 .psx
 
 SanctuaryNoHazards:
-  lbu v0,lo(HazardsVar)(v0)
+  lbu v0,lo(GameplayVar)(v0)
   nop
   bne v0,r0,@@HazardsOn
   nop
@@ -13,8 +13,8 @@ SanctuaryNoHazards:
   nop
 
 NightSanctuary:
-  lui v0,hi(HazardsVar)
-  lbu v0,lo(HazardsVar)(v0)
+  lui v0,hi(GameplayVar)
+  lbu v0,lo(GameplayVar)(v0)
   nop
   bne v0,r0,@@HazardsOn
   lui v0,0x8006

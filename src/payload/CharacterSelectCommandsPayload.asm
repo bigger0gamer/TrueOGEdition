@@ -88,19 +88,26 @@ RandomStage:
   @@RandomMusic:
   andi t0,s5,0x0040
   beq t0,r0,@@RandomStage
+  lui at,hi(MusicVar)
+  lbu at,lo(MusicVar)(at)
+  addi t0,r0,10+6+NumberSongs
+  beq at,r0,@@TOLockdownCheck
+  addi t7,r0,16
+  addi t0,r0,10+6
+  addi t7,r0,8
+  @@TOLockdownCheck:
   lui at,hi(TOLockdown)
   lbu at,lo(TOLockdown)(at)
-  addi t0,r0,10+6+NumberSongs
-  beq at,r0,@@AllMusic
   addi s3,r0,0x0040
+  beq at,r0,@@AllMusic
   lui at,hi(CSSModePointer)
   lw at,lo(CSSModePointer)(at)
   addi t0,r0,0x25
   beq at,t0,StageSelectToMainMenu
   addi t0,r0,10
+  addi t7,r0,5
   @@AllMusic:
   li t1,MusicRNGHistory
-  addi t7,r0,16
   jal RNG
   addi s5,r0,0x0040
   

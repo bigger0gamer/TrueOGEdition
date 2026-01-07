@@ -1,7 +1,7 @@
 .psx
 
 RevolutionNoHazards:
-  lbu v0,lo(HazardsVar)(v0)
+  lbu v0,lo(GameplayVar)(v0)
   nop
   beq v0,r0,@@SkipHazards
   nop

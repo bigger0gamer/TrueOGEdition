@@ -5,14 +5,14 @@
 .org 0x800D58C8 :: RecyclingTeleporterReturn:
 .org 0x800D58C0
   j RecyclingTeleporter
-  lui v0,hi(HazardsVar)
+  lui v0,hi(GameplayVar)
 
 ; Freeze Moving Platforms
 .org 0x800D70BC :: RecyclingPlatformHazOnReturn:
 .org 0x800D70C0 :: RecyclingPlatformHazOffReturn:
 .org 0x800D70B4
   j RecyclingPlatform
-  lui v1,hi(HazardsVar)
+  lui v1,hi(GameplayVar)
 
 ; Disable Arm (LEGACY variant? No longer used)
 .org 0x800D4EF0 :: RecyclingArmReturn:
@@ -26,7 +26,7 @@
 .org 0x800D6240 :: RecyclingArmGrabAirReturn:
 .org 0x800D6238
   j RecyclingArmGrabAir
-  lui v0,hi(HazardsVar)
+  lui v0,hi(GameplayVar)
 
 ; Make stage never open
 .org 0x800D62B0 :: RecyclingCrateCounterReturn:
@@ -38,7 +38,7 @@
 .org 0x800DA0F8 :: RecyclingArmPropertiesReturn:
 .org 0x800DA0F0
   j RecyclingArmProperties
-  lui at,hi(HazardsVar)
+  lui at,hi(GameplayVar)
 
 ; conveyer belts always on
 .org 0x800D3FE0 :: RecyclingConveyersReturn:

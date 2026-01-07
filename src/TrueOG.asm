@@ -30,9 +30,9 @@
    .org 0x8012AA5C :: Player1CursorFlash:
    
    ; 1 byte vars
-   .org 0x801FC8F0 :: PhysicsVar:
-   .org 0x801FC8F1 :: ItemsVar:
-   .org 0x801FC8F2 :: HazardsVar:
+   .org 0x801FC8F0 :: WakeupVar:
+   .org 0x801FC8F1 :: GameplayVar:
+   .org 0x801FC8F2 :: MusicVar:
    .org 0x801FC8F3 :: RespawnVar:
    .org 0x801FC8F4 :: Color1PVar:
    .org 0x801FC8F5 :: Color2PVar:

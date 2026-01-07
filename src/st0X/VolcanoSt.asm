@@ -4,9 +4,9 @@
 ; No Lava Eruption
 .org 0x800D46FC :: VolcanoNoEruptReturn:
 .org 0x800D46F0
-  lui v0,hi(HazardsVar)
+  lui v0,hi(GameplayVar)
   j VolcanoNoErupt
-  lbu v0,lo(HazardsVar)(v0)
+  lbu v0,lo(GameplayVar)(v0)
 
 ; Lava Fast Fall
 .org 0x800D4984 :: VolcanoFastFallHazOnReturn:
