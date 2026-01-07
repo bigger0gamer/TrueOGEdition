@@ -27,11 +27,12 @@
 
 ; Autosave
 ; Update Load Address
-.org 0x8006BB14 :: lui v0,hi(GameplayVar)
-.org 0x8006BB18 :: lbu v1,lo(GameplayVar)(v0)
+.org 0x8006BB14 :: lui v0,hi(ItemsVar)
+.org 0x8006BB18 :: lbu v1,lo(ItemsVar)(v0)
 ; Update Save Address
-.org 0x8006BBE8 :: lui a0,hi(GameplayVar)
-.org 0x8006BBF4 :: sb  v1,lo(GameplayVar)(a0)
+.org 0x8006BBE8 :: lui a0,hi(ItemsVar)
+.org 0x8006BBF0 :: j OptionsMenuGameplayVar
+.org 0x8006BBF4 :: sb  v1,lo(ItemsVar)(a0)
 
 ; Vibration
 ; Update Load Address

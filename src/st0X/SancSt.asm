@@ -6,7 +6,7 @@
   .org 0x800D4774 :: SanctuaryHazOffReturn:
   .org 0x800D4760 :: SanctuaryNoHazardsCut:
     j SanctuaryNoHazards
-    lui v0,hi(GameplayVar)
+    lui v0,hi(HazardsVar)
   
   ; Night Sanc
   .org 0x800D4274 :: NightSanctuaryReturn:

@@ -30,13 +30,15 @@
    .org 0x8012AA5C :: Player1CursorFlash:
    
    ; 1 byte vars
-   .org 0x801FC8F0 :: WakeupVar:
-   .org 0x801FC8F1 :: GameplayVar:
-   .org 0x801FC8F2 :: MusicVar:
+   .org 0x801FC8F0 :: PhysicsVar:
+   .org 0x801FC8F1 :: HazardsVar:
+   .org 0x801FC8F2 :: ItemsVar:
    .org 0x801FC8F3 :: RespawnVar:
    .org 0x801FC8F4 :: Color1PVar:
    .org 0x801FC8F5 :: Color2PVar:
    .org 0x801FC8F6 :: TOLockdown:
+   .org 0x801FC8F7 :: WakeupVar:
+   .org 0x801FC8F8 :: MusicVar:
    
    ; 16 byte vars
    .org 0x801FC900 :: CharacterRNGHistory:
@@ -69,6 +71,7 @@
   ; and now, everything inside the payload!
   .include "payload/RNGGeneratorPayload.asm"
   .include "payload/CharacterSelectCommandsPayload.asm"
+  .include "payload/OptionsMenuVariableRedirectsPayload.asm"
   .include "payload/gameplay/RespawnCombosPayload.asm"
   .include "payload/gameplay/NoItemsPayload.asm"
   .include "payload/gameplay/PhysicsPayload.asm"
@@ -167,4 +170,30 @@
 ; st05.bin - Volcano
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st05.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st05.bin",0x800D3B00
   .include "st0X/VolcanoSt.asm"
+.close
+
+
+
+; Textures!
+; In the past, I would just use tim2view to extract & inject individual textues into the
+; "bundles" (tims appended onto each other) that the game uses. Now, I just use it to
+; extract them. It thankfully gives me the offset, so I can inject them back this way.
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/system/system.tim","../build env/Digimon Rumble Arena (USA)/inject/system/system.tim",0
+  
+  .orga 0x15D60 :: .import "textures/system/now_loading/now_loading.tim"
+  .orga 0x163A0 :: .import "textures/system/now_loading_shadow/now_loading_shadow.tim"
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/title.tim","../build env/Digimon Rumble Arena (USA)/inject/title/title.tim",0
+  
+  ; asdf
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/option.tim","../build env/Digimon Rumble Arena (USA)/inject/title/option.tim",0
+  
+  ; asdf
+  
 .close

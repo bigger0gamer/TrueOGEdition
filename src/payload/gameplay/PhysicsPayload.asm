@@ -5,7 +5,7 @@
 ; 2 = All Ice
 
 Physics:
-  lbu v1,lo(GameplayVar)(v1)
+  lbu v1,lo(PhysicsVar)(v1)
   addi v0,r0,1
   beq v1,v0,@@NormalPhysics
   lui v0,0x800D       ; original instruction

@@ -10,9 +10,9 @@
   ; Ice Water Fast Fall
   .org 0x800D4DD0 :: GlacierFastFallReturn:
   .org 0x800D4DC4 :: GlacierFastFallCut:
-    lui v0,hi(GameplayVar)
+    lui v0,hi(HazardsVar)
     j GlacierFastFall
-    lbu v0,lo(GameplayVar)(v0)
+    lbu v0,lo(HazardsVar)(v0)
   
   ; No Icicles
   .org 0x800D500C :: GlacierNoIciclesReturn:
@@ -20,12 +20,12 @@
     j GlacierNoIcicles
   .org 0x800D5348
     sll s2,s4,4
-    lui v0,hi(GameplayVar)
-    lbu v0,lo(GameplayVar)(v0)
+    lui v0,hi(HazardsVar)
+    lbu v0,lo(HazardsVar)(v0)
 
 
 
 .org 0x800D4D34 :: GlacierRaiseWaterReturn:
 .org 0x800D4D2C
 ;  j GlacierRaiseWater
-;  lui at,hi(GameplayVar)
+;  lui at,hi(HazardsVar)
