@@ -62,3 +62,21 @@ WildernessNoHazards:
   @@Return:
   j WildernessNoHazardsReturn
   nop
+
+
+WildMoveRespawns:
+  addi at,r0,1
+  bne at,a2,@@Return
+  addiu v0,v0,0x4FE4  ; orig instruction
+  
+  lui at,hi(HazardsVar)
+  lbu at,lo(HazardsVar)(at)
+  nop
+  bne at,r0,@@Return
+  nop
+  
+  addi v0,v0,-0x50
+  
+  @@Return:
+  j WildMoveRespawnsReturn
+  nop

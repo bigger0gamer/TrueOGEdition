@@ -112,6 +112,7 @@
   .include "game/RespawnCombosGame.asm"
   .include "game/NoItemsGame.asm"
   .include "game/PhysicsGame.asm"
+  .include "game/WildMoveRespawnsGame.asm"
   
   ; Disable 5 Round Limit (removes branch)
   .org 0x800712A8
