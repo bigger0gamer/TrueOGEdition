@@ -15,7 +15,6 @@
 ; TODO finish TODO list? Is that it? I feel like I had so many fucking ideas a few days ago...
 
 ; bonus list
-; auto skip KO screen
 ; automasher for stun
 
 ; SLUS_014.04, anything that needs to be inserted into the main executable or payload goes here
@@ -88,6 +87,7 @@
   .include "payload/gameplay/NoItemsPayload.asm"
   .include "payload/gameplay/PhysicsPayload.asm"
   .include "payload/gameplay/CharacterStateVisualizerPayload.asm"
+  .include "payload/gameplay/AutoSkipKOPayload.asm"
   .include "payload/stages/RecyclingPayload.asm"
   .include "payload/stages/WildernessPayload.asm"
   .include "payload/stages/RevolutionPayload.asm"
@@ -125,6 +125,7 @@
   .include "game/NoItemsGame.asm"
   .include "game/PhysicsGame.asm"
   .include "game/WildMoveRespawnsGame.asm"
+  .include "game/AutoSkipKOGame.asm"
   
   ; Disable 5 Round Limit (removes branch)
   .org 0x800712A8
