@@ -126,6 +126,7 @@
   .include "game/PhysicsGame.asm"
   .include "game/WildMoveRespawnsGame.asm"
   .include "game/AutoSkipKOGame.asm"
+  .include "game/WakeupInvincGame.asm"
   
   ; Disable 5 Round Limit (removes branch)
   .org 0x800712A8
@@ -195,8 +196,21 @@
 
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/system/system.tim","../build env/Digimon Rumble Arena (USA)/inject/system/system.tim",0
   
+  ; Now Loading
   .orga 0x15D60 :: .import "textures/system/system.tim/now_loading/now_loading.tim"
   .orga 0x163A0 :: .import "textures/system/system.tim/now_loading_shadow/now_loading_shadow.tim"
+  
+  ; Stage Icons
+  .orga 0x8020 :: .import "textures/system/system.tim/recycling/recycling.tim"
+  .orga 0x9640 :: .import "textures/system/system.tim/wilderness/wilderness.tim"
+  .orga 0xAC60 :: .import "textures/system/system.tim/revolution/revolution.tim"
+  .orga 0xC280 :: .import "textures/system/system.tim/sanctuary/sanctuary.tim"
+  .orga 0xD8A0 :: .import "textures/system/system.tim/glacier/glacier.tim"
+  .orga 0xEEC0 :: .import "textures/system/system.tim/volcano/volcano.tim"
+  .orga 0x104E0 :: .import "textures/system/system.tim/reapermons_den/reapermons_den.tim"
+  .orga 0x11B00 :: .import "textures/system/system.tim/basketball/basketball.tim"
+  .orga 0x13120 :: .import "textures/system/system.tim/digi_contest/digi_contest.tim"
+  .orga 0x14740 :: .import "textures/system/system.tim/gems/gems.tim"
   
 .close
 
@@ -206,8 +220,21 @@
   
 .close
 
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/charasel.tim","../build env/Digimon Rumble Arena (USA)/inject/title/charasel.tim",0
+  
+  ; Fix various character select "black is transparent" mistakes
+  .orga 0x1C417 :: .byte 0x80  ; Wargreymon name plate
+  .orga 0x15397 :: .byte 0x80  ; Guilmon name plate
+  .orga 0x2DE97 :: .byte 0x80, 0x00, 0x80, 0x00, 0x80  ; IDM CSS
+  .orga 0x522D7 :: .byte 0x80  ; Stingmon CSS
+  .orga 0x58C57 :: .byte 0x80, 0x00, 0x80, 0x00, 0x80  ; Terriermon CSS
+  .orga 0x5C117 :: .byte 0x80, 0x00, 0x80, 0x00, 0x80  ; Veemon CSS
+  
+.close
+
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/option.tim","../build env/Digimon Rumble Arena (USA)/inject/title/option.tim",0
   
+  ; Entire Options Menu
   .orga 0x1400 :: .import "textures/title/option.tim/setting_0_name/setting_0_name.tim"
   .orga 0x1840 :: .import "textures/title/option.tim/setting_1_name/setting_1_name.tim"
   .orga 0x1C80 :: .import "textures/title/option.tim/setting_2_name/setting_2_name.tim"
