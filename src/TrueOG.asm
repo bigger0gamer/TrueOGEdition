@@ -88,6 +88,7 @@
   .include "payload/gameplay/PhysicsPayload.asm"
   .include "payload/gameplay/CharacterStateVisualizerPayload.asm"
   .include "payload/gameplay/AutoSkipKOPayload.asm"
+  .include "payload/gameplay/WakeupInvincPayload.asm"
   .include "payload/stages/RecyclingPayload.asm"
   .include "payload/stages/WildernessPayload.asm"
   .include "payload/stages/RevolutionPayload.asm"
