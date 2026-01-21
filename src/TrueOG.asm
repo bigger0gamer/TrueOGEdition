@@ -201,12 +201,12 @@
   .orga 0x163A0 :: .import "textures/system/system.tim/now_loading_shadow/now_loading_shadow.tim"
   
   ; Stage Icons
-  .orga 0x8020 :: .import "textures/system/system.tim/recycling/recycling.tim"
-  .orga 0x9640 :: .import "textures/system/system.tim/wilderness/wilderness.tim"
-  .orga 0xAC60 :: .import "textures/system/system.tim/revolution/revolution.tim"
-  .orga 0xC280 :: .import "textures/system/system.tim/sanctuary/sanctuary.tim"
-  .orga 0xD8A0 :: .import "textures/system/system.tim/glacier/glacier.tim"
-  .orga 0xEEC0 :: .import "textures/system/system.tim/volcano/volcano.tim"
+  .orga 0x08020 :: .import "textures/system/system.tim/recycling/recycling.tim"
+  .orga 0x09640 :: .import "textures/system/system.tim/wilderness/wilderness.tim"
+  .orga 0x0AC60 :: .import "textures/system/system.tim/revolution/revolution.tim"
+  .orga 0x0C280 :: .import "textures/system/system.tim/sanctuary/sanctuary.tim"
+  .orga 0x0D8A0 :: .import "textures/system/system.tim/glacier/glacier.tim"
+  .orga 0x0EEC0 :: .import "textures/system/system.tim/volcano/volcano.tim"
   .orga 0x104E0 :: .import "textures/system/system.tim/reapermons_den/reapermons_den.tim"
   .orga 0x11B00 :: .import "textures/system/system.tim/basketball/basketball.tim"
   .orga 0x13120 :: .import "textures/system/system.tim/digi_contest/digi_contest.tim"
@@ -214,47 +214,124 @@
   
 .close
 
-.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/title.tim","../build env/Digimon Rumble Arena (USA)/inject/title/title.tim",0
+
+; "Left" side
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/l05.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/l05.tim",0
   
-  ; asdf
+  .orga 0x0017 :: .byte 0x80  ; IDM SSS
+  .orga 0x4A37 :: .byte 0x80  ; Tamer SSS
   
 .close
 
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/l06.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/l06.tim",0
+  
+  .orga 0x0017 :: .byte 0x80, 0x00, 0x80  ; IDMP SSS
+  .orga 0x4A37 :: .byte 0x80              ; Tamer SSS
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/l16.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/l16.tim",0
+  
+  .orga 0x0017 :: .byte 0x80, 0x00, 0x80  ; Sting SSS
+  .orga 0x4A37 :: .byte 0x80, 0x00, 0x80  ; Tamer SSS
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/l19.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/l19.tim",0
+  
+  .orga 0x0017 :: .byte 0x80, 0x00, 0x80, 0x00, 0x80  ; Veemon SSS
+  .orga 0x22B7 :: .byte 0x80, 0x00, 0x80              ; IDM SSS
+  .orga 0x6CD7 :: .byte 0x80                          ; Tamer SSS
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/l20.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/l20.tim",0
+  
+  .orga 0x0017 :: .byte 0x80              ; Wormmon SSS
+  .orga 0x22B7 :: .byte 0x80, 0x00, 0x80  ; Stingmon SSS
+  .orga 0x6CD7 :: .byte 0x80, 0x00, 0x80  ; Tamer SSS
+  
+.close
+
+; "Right" side
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/r05.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/r05.tim",0
+  
+  .orga 0x0017 :: .byte 0x80, 0x00, 0x80  ; IDM SSS
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/r06.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/r06.tim",0
+  
+  .orga 0x0017 :: .byte 0x80  ; IDMP SSS
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/r13.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/r13.tim",0
+  
+  ; fuuuuggggggg the rika texture god damn
+  ;.orga 0x4C38 :: .byte 0xAA
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/r16.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/r16.tim",0
+  
+  .orga 0x0017 :: .byte 0x80, 0x00, 0x80  ; Sting SSS
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/r19.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/r19.tim",0
+  
+  .orga 0x0017 :: .byte 0x80, 0x00, 0x80, 0x00, 0x80  ; Veemon SSS
+  .orga 0x22B7 :: .byte 0x80, 0x00, 0x80              ; IDM SSS
+  
+.close
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/map/r20.tim","../build env/Digimon Rumble Arena (USA)/inject/title/map/r20.tim",0
+  
+  .orga 0x0017 :: .byte 0x80              ; Wormmon SSS
+  .orga 0x22B7 :: .byte 0x80, 0x00, 0x80  ; Stingmon SSS
+  
+.close
+
+
+; Character Select
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/charasel.tim","../build env/Digimon Rumble Arena (USA)/inject/title/charasel.tim",0
   
   ; Fix various character select "black is transparent" mistakes
-  .orga 0x1C417 :: .byte 0x80  ; Wargreymon name plate
-  .orga 0x15397 :: .byte 0x80  ; Guilmon name plate
+  .orga 0x1C417 :: .byte 0x80                          ; Wargreymon name plate
+  .orga 0x15397 :: .byte 0x80                          ; Guilmon name plate
   .orga 0x2DE97 :: .byte 0x80, 0x00, 0x80, 0x00, 0x80  ; IDM CSS
-  .orga 0x522D7 :: .byte 0x80  ; Stingmon CSS
+  .orga 0x522D7 :: .byte 0x80                          ; Stingmon CSS
   .orga 0x58C57 :: .byte 0x80, 0x00, 0x80, 0x00, 0x80  ; Terriermon CSS
   .orga 0x5C117 :: .byte 0x80, 0x00, 0x80, 0x00, 0x80  ; Veemon CSS
+  .orga 0x5F5D7 :: .byte 0x80                          ; Wormmon CSS
   
 .close
+
 
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/option.tim","../build env/Digimon Rumble Arena (USA)/inject/title/option.tim",0
   
   ; Entire Options Menu
-  .orga 0x1400 :: .import "textures/title/option.tim/setting_0_name/setting_0_name.tim"
-  .orga 0x1840 :: .import "textures/title/option.tim/setting_1_name/setting_1_name.tim"
-  .orga 0x1C80 :: .import "textures/title/option.tim/setting_2_name/setting_2_name.tim"
-  .orga 0x20C0 :: .import "textures/title/option.tim/setting_3_name/setting_3_name.tim"
-  .orga 0x2500 :: .import "textures/title/option.tim/setting_4/setting_4.tim"
-  .orga 0x2A40 :: .import "textures/title/option.tim/setting_5/setting_5.tim"
-  .orga 0x2F80 :: .import "textures/title/option.tim/setting_6/setting_6.tim"
-  .orga 0x34C0 :: .import "textures/title/option.tim/setting_7/setting_7.tim"
-  .orga 0x3A00 :: .import "textures/title/option.tim/setting_8/setting_8.tim"
-  .orga 0x3F40 :: .import "textures/title/option.tim/setting_0_0/setting_0_0.tim"
-  .orga 0x4380 :: .import "textures/title/option.tim/setting_0_1/setting_0_1.tim"
-  .orga 0x47C0 :: .import "textures/title/option.tim/setting_0_2/setting_0_2.tim"
-  .orga 0x4C00 :: .import "textures/title/option.tim/setting_1_0/setting_1_0.tim"
-  .orga 0x5040 :: .import "textures/title/option.tim/setting_1_1/setting_1_1.tim"
-  .orga 0x5480 :: .import "textures/title/option.tim/setting_2_0/setting_2_0.tim"
-  .orga 0x58C0 :: .import "textures/title/option.tim/setting_2_1/setting_2_1.tim"
-  .orga 0x5D00 :: .import "textures/title/option.tim/setting_3_0/setting_3_0.tim"
-  .orga 0x6140 :: .import "textures/title/option.tim/setting_3_1/setting_3_1.tim"
-  .orga 0xFBC0 :: .import "textures/title/option.tim/con_header/con_header.tim"
-  .orga 0xFF00 :: .import "textures/title/option.tim/con_0/con_0.tim"
+  .orga 0x01400 :: .import "textures/title/option.tim/setting_0_name/setting_0_name.tim"
+  .orga 0x01840 :: .import "textures/title/option.tim/setting_1_name/setting_1_name.tim"
+  .orga 0x01C80 :: .import "textures/title/option.tim/setting_2_name/setting_2_name.tim"
+  .orga 0x020C0 :: .import "textures/title/option.tim/setting_3_name/setting_3_name.tim"
+  .orga 0x02500 :: .import "textures/title/option.tim/setting_4/setting_4.tim"
+  .orga 0x02A40 :: .import "textures/title/option.tim/setting_5/setting_5.tim"
+  .orga 0x02F80 :: .import "textures/title/option.tim/setting_6/setting_6.tim"
+  .orga 0x034C0 :: .import "textures/title/option.tim/setting_7/setting_7.tim"
+  .orga 0x03A00 :: .import "textures/title/option.tim/setting_8/setting_8.tim"
+  .orga 0x03F40 :: .import "textures/title/option.tim/setting_0_0/setting_0_0.tim"
+  .orga 0x04380 :: .import "textures/title/option.tim/setting_0_1/setting_0_1.tim"
+  .orga 0x047C0 :: .import "textures/title/option.tim/setting_0_2/setting_0_2.tim"
+  .orga 0x04C00 :: .import "textures/title/option.tim/setting_1_0/setting_1_0.tim"
+  .orga 0x05040 :: .import "textures/title/option.tim/setting_1_1/setting_1_1.tim"
+  .orga 0x05480 :: .import "textures/title/option.tim/setting_2_0/setting_2_0.tim"
+  .orga 0x058C0 :: .import "textures/title/option.tim/setting_2_1/setting_2_1.tim"
+  .orga 0x05D00 :: .import "textures/title/option.tim/setting_3_0/setting_3_0.tim"
+  .orga 0x06140 :: .import "textures/title/option.tim/setting_3_1/setting_3_1.tim"
+  .orga 0x0FBC0 :: .import "textures/title/option.tim/con_header/con_header.tim"
+  .orga 0x0FF00 :: .import "textures/title/option.tim/con_0/con_0.tim"
   .orga 0x11980 :: .import "textures/title/option.tim/con_4/con_4.tim"
   .orga 0x11DC0 :: .import "textures/title/option.tim/con_5/con_5.tim"
   .orga 0x12200 :: .import "textures/title/option.tim/con_7/con_7.tim"
