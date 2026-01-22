@@ -5,18 +5,6 @@
 .psx
 
 
-
-; quick n dirty TODO list
-; implement wake up invinc
-; figure out code hackies to reduce options menu?
-;    I know how to edit it in RAM, but fuuuuuuucccckkkk IDK how the fuck it's setup lol
-; Adding legacy options like old no hazards would be cool
-;    but refactoring *ALL* of the stage code to accomadate... yeah fuck that 
-; TODO finish TODO list? Is that it? I feel like I had so many fucking ideas a few days ago...
-
-; bonus list
-; automasher for stun
-
 ; SLUS_014.04, anything that needs to be inserted into the main executable or payload goes here
 ; The output file "TITLE_ID" should be replaced by build.sh with a sed command at build time (see build.sh for more info)
 .openfile "../build env/Digimon Rumble Arena (USA)/SLUS_014.04","../build env/Digimon Rumble Arena (USA)/TITLE_ID",0x8000F800
