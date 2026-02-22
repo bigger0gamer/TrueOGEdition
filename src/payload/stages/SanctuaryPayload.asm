@@ -3,10 +3,11 @@
 SanctuaryNoHazards:
   lbu v0,lo(HazardsVar)(v0)
   nop
-  bne v0,r0,@@HazardsOn
+  addi v0,v0,-2
+  beq v0,r0,@@HazardsOn
   nop
   j SanctuaryHazOffReturn
-  addi v0,v0,0x1
+  addi v0,r0,0x1
   @@HazardsOn:
   lw v0, 0x0d54(s0)
   j SanctuaryHazOnReturn
@@ -16,7 +17,8 @@ NightSanctuary:
   lui v0,hi(HazardsVar)
   lbu v0,lo(HazardsVar)(v0)
   nop
-  bne v0,r0,@@HazardsOn
+  addi v0,v0,-2
+  beq v0,r0,@@HazardsOn
   lui v0,0x8006
   lw v0,0x2198(v0)
   nop

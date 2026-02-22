@@ -146,6 +146,11 @@
 
 
 
+; HazardsVar
+; 0 - True OG (New No Hazards)
+; 1 - Legacy (Old No Hazards from True OG v1)
+; 2 - Original (No Changes)
+
 ; st00.bin - Garbage Recycling Center
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st00.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st00.bin",0x800D3B00
   .include "st0X/RecycSt.asm"

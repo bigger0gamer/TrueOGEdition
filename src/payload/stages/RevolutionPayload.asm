@@ -4,7 +4,9 @@ RevolutionNoHazards:
   lbu v0,lo(HazardsVar)(v0)
   nop
   beq v0,r0,@@SkipHazards
-  nop
+  addi v0,v0,-1
+  beq v0,r0,@@Return
+  add v0,r0,r0
   j @@Return
   lw v0,0x0D48(s1)
   @@SkipHazards:

@@ -3,7 +3,7 @@
 # So you can easily rename the Title ID by just changing this variable and rebuilding
 # I recommend keeping something placeholder sounding while dev/testing, like TRUE_OGD.EV
 TITLE_ID='TRUE_OGD.EV'
-VERSION_STRING='TrueOG_DEV'
+VERSION_STRING='TrueOG-DEV'
 NUMBER_SONGS=$(cat NumberSongs.txt)
 
 # armips

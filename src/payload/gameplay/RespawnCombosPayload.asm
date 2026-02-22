@@ -1,10 +1,29 @@
 .psx
 
 ; Setting loaded from RespawnVar
-; 0 - Respawn Combos Enabled
-; 1 - Respawn Combos Disabled
+; 1 - Respawn Combos Enabled
+; 0 - Respawn Combos Disabled
 
-; Main function!
+; New function!
+; This increases the respawn invincibility that apparently was always there
+; from a measily 3 frames, up to something actually long enough to keep players safe
+NewRespawnCombo:
+  lbu v0,lo(RespawnVar)(v0)
+  lw ra,0x0024(sp)  ; orig instruction
+  bne v0,r0,@@Skip
+  addiu v0,r0,3
+  addiu v0,r0,17
+  @@Skip:
+  j NewRespawnComboReturn
+  nop
+
+
+
+; Old function
+; This forces knockdown on respawn, which prevents respawn combos
+; but also shortens wake up times, which isn't desirable
+; Still has 0 = respawn on, unused and for reference lol
+/*
 RespawnCombo:
   lbu a1,lo(RespawnVar)(a1)  ; Load respawn combo setting
   addu a0,s1,r0             ; orig instruction
@@ -15,13 +34,4 @@ RespawnCombo:
   @@branch:
   j RespawnComboReturn      ; Return back to game.bin
   nop
-
-NewRespawnCombo:
-  lbu v0,lo(RespawnVar)(v0)
-  lw ra,0x0024(sp)  ; orig instruction
-  beq v0,r0,@@Skip
-  addiu v0,r0,3
-  addiu v0,r0,17
-  @@Skip:
-  j RespawnComboReturn
-  nop
+*/

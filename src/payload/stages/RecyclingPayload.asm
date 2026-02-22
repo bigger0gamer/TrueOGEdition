@@ -3,7 +3,8 @@
 RecyclingTeleporter:
   lbu v0,lo(HazardsVar)(v0)
   nop
-  beq v0,r0,@@Skip
+  addi v0,v0,-2
+  bne v0,r0,@@Skip
   addi v0,r0,0x7FFF  ; Force Teleporter closed
   lw v0, 0x105c(s2)  ; Load actual Teleporter cooldown
   @@Skip:
@@ -13,7 +14,8 @@ RecyclingTeleporter:
 RecyclingPlatform:
   lbu v1,lo(HazardsVar)(v1)
   nop
-  beq v1,r0,@@Skip
+  addi v1,v1,-2
+  bne v1,r0,@@Skip
   lw v1, 0x0d68(s3)
   j RecyclingPlatformHazOnReturn
   nop  ; (not needed on mednafen or mister but I guess its needed to not hang on duckstation)
@@ -25,12 +27,13 @@ RecyclingArm:
   lui a0,hi(HazardsVar)
   lbu a0,lo(HazardsVar)(a0)
   nop
+  addi a0,a0,-1
   bne a0,r0,@@Skip
   nop
-  sw a0,0x0D38(s0)
+  sw r0,0x0D38(s0)
   @@Skip:
   j RecyclingArmReturn
-  addu a0,s0,r0
+  addu a0,s0,r0  ; orig instruction
 
 RecyclingArmGrabAir:
   lbu v0,lo(HazardsVar)(v0)
@@ -48,7 +51,8 @@ RecyclingCrateCounter:
   lui at,hi(HazardsVar)
   lbu at,lo(HazardsVar)(at)
   nop
-  bne at,r0,@@SkipEarlyReset
+  addi at,at,-2
+  beq at,r0,@@SkipEarlyReset
   slti at,v0,4
   bne at,r0,@@SkipEarlyReset
   nop

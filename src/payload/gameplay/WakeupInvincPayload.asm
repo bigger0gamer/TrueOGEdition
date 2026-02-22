@@ -1,7 +1,7 @@
 .psx
 
-; 0 - 8f
-; 1 - 4f
+; 0 - 4f
+; 1 - 8f
 ; 2 - 2f
 ; 3 - 7f
 ; 4 - 6f
@@ -14,15 +14,15 @@ WakeupInvinc:
   lui at,hi(WakeUpVar)
   lb at,lo(WakeupVar)(at)
   
-  ; 0 - 8f
+  ; 0 - 4f
   nop
   beq at,r0,@@Return
-  addiu v0,r0,8
+  addiu v0,r0,4
   
-  ; 1 - 4f
+  ; 1 - 8f
   addi at,at,-1
   beq at,r0,@@Return
-  addiu v0,r0,4
+  addiu v0,r0,8
   
   ; 2 - 2f
   addi at,at,-1

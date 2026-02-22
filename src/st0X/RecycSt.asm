@@ -14,11 +14,11 @@
   j RecyclingPlatform
   lui v1,hi(HazardsVar)
 
-; Disable Arm (LEGACY variant? No longer used)
+; Disable Arm (LEGACY)
 .org 0x800D4EF0 :: RecyclingArmReturn:
 .org 0x800D4EE8
-;  j RecyclingArm
-;  sw a0,0x0D38(s0)  ; orig instruction?
+  j RecyclingArm
+  sw a0,0x0D38(s0)  ; orig instruction?
 
 
 

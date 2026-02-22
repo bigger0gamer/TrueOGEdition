@@ -5,7 +5,7 @@ WildernessNoHazards:
   lbu v0,lo(HazardsVar)(v0)
   nop
   bne v0,r0,@@Return
-  nop
+  addi v0,v0,-1
   
   li v0,Player1StatePointer + 0x388
   lw t7,0(v0)

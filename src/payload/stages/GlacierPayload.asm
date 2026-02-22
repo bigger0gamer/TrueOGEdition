@@ -4,7 +4,8 @@ GlacierPlatform:
   lui s3,hi(HazardsVar)
   lbu s3,lo(HazardsVar)(s3)
   nop
-  beq s3,r0,@@Skip
+  addi s3,s3,-2
+  bne s3,r0,@@Skip
   addi s3,r0,0x1000
   lh s3,0x1ffc(v0)
   @@Skip:
@@ -13,29 +14,20 @@ GlacierPlatform:
 
 GlacierFastFall:
   nop
-  bne v0,r0,@@Skip
-  nop
+  addi v0,v0,-2
+  beq v0,r0,@@Skip
+  addi v0,r0,1
   addi v0,r0,0x2
   @@Skip:
   j GlacierFastFallReturn
   nop
 
-GlacierNoIcicles:
+GlacierNoIciclesInitialize:
   lui v0,hi(HazardsVar)
-  j GlacierNoIciclesReturn
   lbu v0,lo(HazardsVar)(v0)
+  j GlacierNoIciclesInitializeReturn
+  srl v0,v0,1
 
-
-; 800D4DE4 raise water less jank
-GlacierRaiseWater:
-  lbu at,lo(HazardsVar)(at)
-  lw v1,0x1DD0(v0)  ; original instruction
-  bne at,r0,@@Skip
-  nop
-  slti at,v1,0xFB00
-  bne at,r0,@@Skip
-  addi at,r0,2
-  sw at,0x048C(s7)
-  @@Skip:
-  j GlacierRaiseWaterReturn
-  nop
+GlacierNoIciclesLoop:
+  j GlacierNoIciclesLoopReturn
+  sw v0,0x0000(v1)  ; orig instruction
