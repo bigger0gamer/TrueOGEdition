@@ -27,6 +27,8 @@
    .org 0x80064E90 :: PauseTextPointer:
    .org 0x8012AAA4 :: CSSModePointer:
    .org 0x8012AA5C :: Player1CursorFlash:
+   .org 0x8011C455 :: Player2RealInputs:
+   .org 0x801142AC :: Player2LateInputs:
    
    ; 1 byte vars
    .org 0x801FC8F0 :: PhysicsVar:
@@ -58,6 +60,7 @@
   .include "exe/RandomMusicExe.asm"
   .include "exe/AltColorExe.asm"
   .include "exe/TOLockdownExe.asm"
+  .include "exe/Player2InputFixExe.asm"
   
   
   ; As most of the game's code can't be resized,
@@ -71,6 +74,7 @@
   .include "payload/RNGGeneratorPayload.asm"
   .include "payload/CharacterSelectCommandsPayload.asm"
   .include "payload/OptionsMenuVariableRedirectsPayload.asm"
+  .include "payload/Player2InputFixPayload.asm"
   .include "payload/gameplay/RespawnCombosPayload.asm"
   .include "payload/gameplay/NoItemsPayload.asm"
   .include "payload/gameplay/PhysicsPayload.asm"
