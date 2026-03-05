@@ -40,7 +40,6 @@
    .org 0x801FC8F6 :: TOLockdown:
    .org 0x801FC8F7 :: WakeupVar:
    .org 0x801FC8F8 :: MusicVar:
-   .org 0x801FC8FF :: SmokeRNGEveryFrameHistory:
    
    ; 16 byte vars
    .org 0x801FC900 :: CharacterRNGHistory:
