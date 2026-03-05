@@ -56,25 +56,3 @@ RNG:
   nop
   jr at
   sb v0,-1(t3)
-  
-  
-  ; check history
-  ;lw t3,0(t1)
-  ;addi t4,r0,4
-  ;@@HistoryLoop:
-  ;subi t4,t4,1
-  ;andi t5,t3,0xFF
-  ;srl t3,t3,8
-  ;beq v0,t5,@@Retry
-  ;nop
-  ;bne t4,r0,@@HistoryLoop
-  ;nop
- ; 
- ; ; save to history, return
- ; @@NoMoreRetries:
- ; lw t3,0(t1)
- ; nop
- ; sll t3,t3,8
- ; or t3,t3,v0
- ; jr at
- ; sw t3,0(t1)

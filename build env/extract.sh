@@ -6,6 +6,9 @@ mkdir "Digimon Rumble Arena (USA)/vfs"
 quickbms digimon_vfs2.bms "Digimon Rumble Arena (USA)/A.VFS" "Digimon Rumble Arena (USA)/vfs"
 mkdir "Digimon Rumble Arena (USA)/inject"
 mkdir "Digimon Rumble Arena (USA)/inject/bin"
+mkdir "Digimon Rumble Arena (USA)/inject/system"
+mkdir "Digimon Rumble Arena (USA)/inject/title"
+mkdir "Digimon Rumble Arena (USA)/inject/title/map"
 cd "Digimon Rumble Arena (USA)"
 XAPacker A.XAP
 cd ..

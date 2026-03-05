@@ -1,70 +1,49 @@
 .psx
 
-; Game Level -> Wakeup
-;   WakeupVar
-; Sound      -> Respawn
-;   RespawnVar
-; Autosave   -> Gameplay
+; Game Level -> Gameplay
 ;   GameplayVar
+; Sound      -> Items
+;   ItemsVar
+; Autosave   -> Respawns
+;   RespawnVar
 ; Vibration  -> Music
 ;   MusicVar
 
 ; Game Level
 ; Update Load Address
-.org 0x8006BAD8 :: lui v0,hi(WakeupVar)
-.org 0x8006BAE0 :: lbu v1,lo(WakeupVar)(v0)
+.org 0x8006BAD8 :: lui v0,hi(HazardsVar)
+.org 0x8006BAE0 :: lbu v1,lo(HazardsVar)(v0)
 ; Update Save Address
-.org 0x8006BB90 :: lui v1,hi(WakeupVar)
-.org 0x8006BB98 :: sb  a0,lo(WakeupVar)(v1)
+.org 0x8006BB90 :: lui v1,hi(HazardsVar)
+.org 0x8006BB94 :: j OptionsMenuGameplayVar
+.org 0x8006BB98 :: sb  a0,lo(HazardsVar)(v1)
 
 ; Sound
 ; Update Load Address
-.org 0x8006BAEC :: lui v0,hi(RespawnVar)
-.org 0x8006BAF4 :: lbu v1,lo(RespawnVar)(v0)
+.org 0x8006BAEC :: lui v0,hi(ItemsVar)
+.org 0x8006BAF4 :: lbu v1,lo(ItemsVar)(v0)
 ; Update Save Address
-.org 0x8006BBA8 :: lui a0,hi(RespawnVar)
-.org 0x8006BBB8 :: sb  v1,lo(RespawnVar)(a0)
+.org 0x8006BBA8 :: lui a0,hi(ItemsVar)
+.org 0x8006BBB8 :: sb  v1,lo(ItemsVar)(a0)
 
 ; Autosave
 ; Update Load Address
-.org 0x8006BB14 :: lui v0,hi(ItemsVar)
-.org 0x8006BB18 :: lbu v1,lo(ItemsVar)(v0)
+.org 0x8006BB14 :: lui v0,hi(RespawnVar)
+.org 0x8006BB18 :: lbu v1,lo(RespawnVar)(v0)
 ; Update Save Address
-.org 0x8006BBE8 :: lui a0,hi(ItemsVar)
-.org 0x8006BBF0 :: j OptionsMenuGameplayVar
-.org 0x8006BBF4 :: sb  v1,lo(ItemsVar)(a0)
+.org 0x8006BBE8 :: lui a0,hi(RespawnVar)
+.org 0x8006BBF4 :: sb  v1,lo(RespawnVar)(a0)
+; Change texture pointer table to use Sound textures
+.org 0x80064E44 :: .byte 0x44
+.org 0x80064E48 :: .byte 0x50
 
 ; Vibration
-; Update Load Address
+; Update Load Address (See below)
 .org 0x8006BB24 :: lui v0,hi(MusicVar)
 .org 0x8006BB28 :: lbu v1,lo(MusicVar)(v0)
 ; Update Save Address
 .org 0x8006BC04 :: lui a0,hi(MusicVar)
 .org 0x8006BC0C :: sb  v1,lo(MusicVar)(a0)
-
-
-
-; Inverting isn't used anymore, since I rearranged the options menu. I'm leaving the logic
-; here though, so I don't have to think hard later if I ever want to invert it again.
-
-; Okay, so this one needs explanation. Autosave and Vibration both use the text "Yes" and "No".
-; The devs naturally made both of them use the same texture. One problem however:
-; I want the default state (0) of each say "Off" for Items but "On" for Respawn Combos.
-; The game already inverts the state of each variable (0->1,1->0) to show the right texture,
-; so I can just nop that instruction to invert it again. Except, it uses the same instruction
-; for both variables, so I have to move the inverting instuction to somewhere only Items can reach.
-; The instruction is only shared for options menu initalization.
-
-; Invert "On"/"Off" texture for Items and Respawns (Options Menu Init)
-; 0 Off -> 0 On
-; 1 On     1 Off
-;.org 0x8006BB30
-;  nop
-
-; Uninvert "On"/"Off" texture for Items (Options Menu Init)
-;.org 0x8006BB20
-;  sltiu v1,v1,0x0001
-
-; Invert "On"/"Off" texture for Respawns (when changed)
-;.org 0x8006BC08
-;  nop
+; Invert "On"/"Off" texture for autosave and vibration (Options Menu Init)
+.org 0x8006BB30
+  nop

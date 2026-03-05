@@ -40,6 +40,7 @@
    .org 0x801FC8F6 :: TOLockdown:
    .org 0x801FC8F7 :: WakeupVar:
    .org 0x801FC8F8 :: MusicVar:
+   .org 0x801FC8FF :: SmokeRNGEveryFrameHistory:
    
    ; 16 byte vars
    .org 0x801FC900 :: CharacterRNGHistory:
@@ -61,6 +62,7 @@
   .include "exe/AltColorExe.asm"
   .include "exe/TOLockdownExe.asm"
   .include "exe/Player2InputFixExe.asm"
+  .include "exe/SmokeRNGEveryFrameExe.asm"
   
   
   ; As most of the game's code can't be resized,
@@ -304,6 +306,30 @@
   .orga 0x5C117 :: .byte 0x80, 0x00, 0x80, 0x00, 0x80  ; Veemon CSS
   .orga 0x5F5D7 :: .byte 0x80                          ; Wormmon CSS
   
+  ; Select Digimon -> Random
+  .orga 0x13080 :: .import "textures/title/charasel.tim/select_digimon/select_digimon.tim"
+  .orga 0x129F4 :: .byte 0xA0, 0x00
+  
+  ; Left side -> Secret Tamer
+  ; Right side -> Secret Digimon
+  .orga 0x0A120 :: .import "textures/title/charasel.tim/left_side/left_side.tim"
+  .orga 0x09D00 :: .import "textures/title/charasel.tim/right_side/right_side.tim"
+  
+.close
+
+
+; Stage Select
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/mapsel.tim","../build env/Digimon Rumble Arena (USA)/inject/title/mapsel.tim",0
+  
+  ; Select Stage -> Random
+  .orga 0xCFE0 :: .import "textures/title/mapsel.tim/select_stage/select_stage.tim"
+  .orga 0xCB36 :: .byte 0xA0, 0x00
+  
+  ; Left side -> :bs: Strike
+  ; Right side -> :bc: Reset
+  .orga 0x8F00 :: .import "textures/title/mapsel.tim/left_side/left_side.tim"
+  .orga 0x9440 :: .import "textures/title/mapsel.tim/right_side/right_side.tim"
+  
 .close
 
 
@@ -337,5 +363,12 @@
   .orga 0x12B80 :: .import "textures/title/option.tim/con_2/con_2.tim"
   .orga 0x12FC0 :: .import "textures/title/option.tim/con_3/con_3.tim"
   .orga 0x13400 :: .import "textures/title/option.tim/con_6/con_6.tim"
+  
+.close
+
+
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/title.tim","../build env/Digimon Rumble Arena (USA)/inject/title/title.tim",0
+  
+  .orga 0x1B6E0 :: .import "textures/title/title.tim/press_start.tim"
   
 .close
