@@ -62,7 +62,6 @@
   .include "exe/AltColorExe.asm"
   .include "exe/TOLockdownExe.asm"
   .include "exe/Player2InputFixExe.asm"
-  .include "exe/SmokeRNGEveryFrameExe.asm"
   
   
   ; As most of the game's code can't be resized,
