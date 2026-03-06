@@ -28,4 +28,4 @@ mv "Digimon Rumble Arena (USA)/SYSTEM.bak" "Digimon Rumble Arena (USA)/SYSTEM.CN
 mv "Digimon Rumble Arena (USA).bak" "Digimon Rumble Arena (USA).xml"
 
 # open output in emulator
-duckstation TrueOG.cue &> /dev/null
+mednafen TrueOG.cue &> /dev/null
