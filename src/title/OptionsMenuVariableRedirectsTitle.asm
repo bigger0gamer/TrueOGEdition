@@ -47,3 +47,7 @@
 ; Invert "On"/"Off" texture for autosave and vibration (Options Menu Init)
 .org 0x8006BB30
   nop
+.org 0x8006BBEC
+  nop
+.org 0x8006BC08
+  nop
