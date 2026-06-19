@@ -87,6 +87,7 @@
   .include "payload/stages/SanctuaryPayload.asm"
   .include "payload/stages/GlacierPayload.asm"
   .include "payload/stages/VolcanoPayload.asm"
+  .include "payload/stages/ReapersPayload.asm"
   .include "payload/TOLockdown/CharacterBansPayload.asm"
   .include "payload/TOLockdown/StageBansPayload.asm"
   .include "payload/TOLockdown/HandicapLockdownPayload.asm"
@@ -183,6 +184,11 @@
 ; st05.bin - Volcano
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st05.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st05.bin",0x800D3B00
   .include "st0X/VolcanoSt.asm"
+.close
+
+; st06.bin - Reapermon's Den
+.openfile "../build env/Digimon Rumble Arena (USA)/vfs/bin/st06.bin","../build env/Digimon Rumble Arena (USA)/inject/bin/st06.bin",0x800D3B00
+  .include "st0X/ReapersSt.asm"
 .close
 
 
