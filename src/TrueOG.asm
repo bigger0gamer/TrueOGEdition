@@ -2,6 +2,7 @@
 ; created by Yuri Bacon
 ; v2 Refactor
 ; For more information, check out the README.md
+; 080E40
 .psx
 
 
@@ -40,6 +41,7 @@
    .org 0x801FC8F6 :: TOLockdown:
    .org 0x801FC8F7 :: WakeupVar:
    .org 0x801FC8F8 :: MusicVar:
+   .org 0x801FC8F9 :: StageIDVar:
    
    ; 16 byte vars
    .org 0x801FC900 :: CharacterRNGHistory:
@@ -81,6 +83,7 @@
   .include "payload/gameplay/CharacterStateVisualizerPayload.asm"
   .include "payload/gameplay/AutoSkipKOPayload.asm"
   .include "payload/gameplay/WakeupInvincPayload.asm"
+  .include "payload/gameplay/NoPlatDropPayload.asm"
   .include "payload/stages/RecyclingPayload.asm"
   .include "payload/stages/WildernessPayload.asm"
   .include "payload/stages/RevolutionPayload.asm"
@@ -121,6 +124,7 @@
   .include "game/WildMoveRespawnsGame.asm"
   .include "game/AutoSkipKOGame.asm"
   .include "game/WakeupInvincGame.asm"
+  .include "game/NoPlatDropGame.asm"
   
   ; Disable 5 Round Limit (removes branch)
   .org 0x800712A8
