@@ -25,3 +25,9 @@
   sll s2,s4,4  ; orig instruction
   j GlacierNoIciclesLoop
   srl v0,v0,1
+
+; Raise Respawn
+;.org 0x800D3E28
+;  addiu v0,r0,-0x1600
+.org 0x800D3D88
+  .word GlacierRaiseRespawn

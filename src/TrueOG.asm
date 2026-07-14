@@ -2,7 +2,6 @@
 ; created by Yuri Bacon
 ; v2 Refactor
 ; For more information, check out the README.md
-; 080E40
 .psx
 
 

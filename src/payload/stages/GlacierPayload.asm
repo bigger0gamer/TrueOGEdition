@@ -19,13 +19,13 @@ GlacierPlatform:
   @@Player1LeftCheck:
   addi s3,s3,-4
   lw t7,0(s3)
-  li t5,0xFFF40000
+  li t5,0xFFF80000
   slt t3,t7,t5
   beq t3,r0,@@Player1RightCheck
   nop
   sw t5,0(s3)
   @@Player1RightCheck:
-  li t4,0x000B0000
+  li t4,0x00080000
   slt t3,t7,t4
   bne t3,r0,@@Player2HeightCheck
   nop
@@ -89,7 +89,6 @@ GlacierNoIciclesLoop:
   j GlacierNoIciclesLoopReturn
   sw v0,0x0000(v1)  ; orig instruction
 
-
 GlacierNoPlatDrop:
   lw t7,0x0388(s1)
   li t6,0xFFF80000
@@ -101,3 +100,15 @@ GlacierNoPlatDrop:
   @@GlacierCanDrop:
   j PlatDropApproved
   nop
+
+GlacierRaiseRespawn:
+  lui at,hi(HazardsVar)
+  lbu at,lo(HazardsVar)(at)
+  lw v0,0x0350(a0)  ; orig instruction
+  bne at,r0,@@Skip
+  addiu v0,v0,0x1000  ; orig instruction
+  addi v0,r0,0xFA00
+  @@Skip:
+  lw v1,0x0004(a1)  ; orig instruction
+  jr ra
+  slt v0,v0,v1
