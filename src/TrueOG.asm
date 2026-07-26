@@ -41,6 +41,8 @@
    .org 0x801FC8F7 :: WakeupVar:
    .org 0x801FC8F8 :: MusicVar:
    .org 0x801FC8F9 :: StageIDVar:
+   .org 0x801FC8FA :: CustomTimeLimitVar:  ; 2 byte unsigned
+   .org 0x801FC8FC :: CustomRoundLimitVar:
    
    ; 16 byte vars
    .org 0x801FC900 :: CharacterRNGHistory:
@@ -83,6 +85,9 @@
   .include "payload/gameplay/AutoSkipKOPayload.asm"
   .include "payload/gameplay/WakeupInvincPayload.asm"
   .include "payload/gameplay/NoPlatDropPayload.asm"
+  .include "payload/gameplay/ScoreDisplayPayload.asm"
+  .include "payload/gameplay/CustomRoundLimitPayload.asm"
+  .include "payload/gameplay/CustomTimeLimitPayload.asm"
   .include "payload/stages/RecyclingPayload.asm"
   .include "payload/stages/WildernessPayload.asm"
   .include "payload/stages/RevolutionPayload.asm"
@@ -124,6 +129,9 @@
   .include "game/AutoSkipKOGame.asm"
   .include "game/WakeupInvincGame.asm"
   .include "game/NoPlatDropGame.asm"
+  .include "game/ScoreDisplayGame.asm"
+  .include "game/CustomRoundLimitGame.asm"
+  .include "game/CustomTimeLimitGame.asm"
   
   ; Disable 5 Round Limit (removes branch)
   .org 0x800712A8

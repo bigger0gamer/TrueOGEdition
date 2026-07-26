@@ -2,7 +2,7 @@
 
 OptionsMenuGameplayVar:
   srl at,a0,1
-  sb at,lo(PhysicsVar)(v1)
+  sb a0,lo(PhysicsVar)(v1)
   li a1,0x801CEDA0
   sb at,0(a1)
   sb at,lo(ItemsVar)(v1)
