@@ -43,6 +43,7 @@
    .org 0x801FC8F9 :: StageIDVar:
    .org 0x801FC8FA :: CustomTimeLimitVar:  ; 2 byte unsigned
    .org 0x801FC8FC :: CustomRoundLimitVar:
+   .org 0x801FC8FD :: GameplayFlagsVar:  ; see CustomMeter
    
    ; 16 byte vars
    .org 0x801FC900 :: CharacterRNGHistory:
@@ -88,6 +89,7 @@
   .include "payload/gameplay/ScoreDisplayPayload.asm"
   .include "payload/gameplay/CustomRoundLimitPayload.asm"
   .include "payload/gameplay/CustomTimeLimitPayload.asm"
+  .include "payload/gameplay/CustomMeterPayload.asm"
   .include "payload/stages/RecyclingPayload.asm"
   .include "payload/stages/WildernessPayload.asm"
   .include "payload/stages/RevolutionPayload.asm"
@@ -132,6 +134,7 @@
   .include "game/ScoreDisplayGame.asm"
   .include "game/CustomRoundLimitGame.asm"
   .include "game/CustomTimeLimitGame.asm"
+  .include "game/CustomMeterGame.asm"
   
   ; Disable 5 Round Limit (removes branch)
   .org 0x800712A8
