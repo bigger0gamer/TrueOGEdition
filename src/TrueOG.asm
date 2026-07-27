@@ -387,6 +387,7 @@
 
 .openfile "../build env/Digimon Rumble Arena (USA)/vfs/title/title.tim","../build env/Digimon Rumble Arena (USA)/inject/title/title.tim",0
   
-  .orga 0x1B6E0 :: .import "textures/title/title.tim/press_start.tim"
+  .orga 0x1B6E0 :: .import "textures/title/title.tim/press_start/press_start.tim"
+  .orga 0x17FA0 :: .import "textures/title/title.tim/copyright/copyright.tim"
   
 .close
