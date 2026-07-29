@@ -32,10 +32,11 @@
 .org 0x8006BB18 :: lbu v1,lo(RespawnVar)(v0)
 ; Update Save Address
 .org 0x8006BBE8 :: lui a0,hi(RespawnVar)
+.org 0x8006BBEC :: sb  v1,lo(WakeupVar)(a0)
 .org 0x8006BBF4 :: sb  v1,lo(RespawnVar)(a0)
 ; Change texture pointer table to use Sound textures
-.org 0x80064E44 :: .byte 0x44
-.org 0x80064E48 :: .byte 0x50
+;.org 0x80064E3C :: .byte 0x44
+;.org 0x80064E40 :: .byte 0x50
 
 ; Vibration
 ; Update Load Address (See below)
@@ -47,7 +48,7 @@
 ; Invert "On"/"Off" texture for autosave and vibration (Options Menu Init)
 .org 0x8006BB30
   nop
-.org 0x8006BBEC
-  nop
+;.org 0x8006BBEC
+;  nop  ; I ended up using this instruction above for Autosave Update Save Address
 .org 0x8006BC08
   nop
