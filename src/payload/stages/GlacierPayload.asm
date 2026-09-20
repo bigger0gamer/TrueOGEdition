@@ -8,56 +8,24 @@ GlacierPlatform:
   beq s3,r0,@@Skip
   addi s3,s3,1
   beq s3,r0,@@HoldUpPlat
+  nop
   
-  li s3,Player1StatePointer + 0x388
-  lw t7,0(s3)
-  li t6,0xFFED0000
-  slt t7,t7,t6
-  beq t7,r0,@@Player1LeftCheck
-  nop
-  sw t6,0(s3)
-  @@Player1LeftCheck:
-  addi s3,s3,-4
-  lw t7,0(s3)
-  li t5,0xFFF80000
-  slt t3,t7,t5
-  beq t3,r0,@@Player1RightCheck
-  nop
-  sw t5,0(s3)
-  @@Player1RightCheck:
-  li t4,0x00080000
-  slt t3,t7,t4
-  bne t3,r0,@@Player2HeightCheck
-  nop
-  sw t4,0(s3)
-  
-  @@Player2HeightCheck:
-  li s3,Player2StatePointer
-  lw s3,0(s3)
-  nop
-  beq s3,r0,@@HoldUpPlat
-  nop
-  addi s3,s3,0x388
-  lw t7,0(s3)
-  nop
-  slt t7,t7,t6
-  beq t7,r0,@@Player2LeftCheck
-  nop
-  sw t6,0(s3)
-  @@Player2LeftCheck:
-  addi s3,s3,-4
-  lw t7,0(s3)
-  nop
-  slt t3,t7,t5
-  beq t3,r0,@@Player2RightCheck
-  nop
-  sw t5,0(s3)
-  @@Player2RightCheck:
-  nop
-  slt t3,t7,t4
-  bne t3,r0,@@HoldUpPlat
-  nop
-  sw t4,0(s3)
+  addi at,ra,0
+  jal InvisibleWallsStackPrep
+  addi sp,sp,-0x18
+  lui a0,hi(Player1StatePointer)
+  lw a0,lo(Player1StatePointer)(a0)
+  li t0,0xFFED0000
+  li t1,0xFFF80000
+  li t2,0x00080000
+  jal InvisibleWalls
+  addi a1,r0,2
+  lui a0,hi(Player2StatePointer)
+  lw a0,lo(Player2StatePointer)(a0)
+  jal InvisibleWalls
+  addi a1,r0,2
+  jal InvisibleWallsStackUnprep
+  addi sp,sp,0x18
   
   @@HoldUpPlat:
   j GlacierPlatformReturn

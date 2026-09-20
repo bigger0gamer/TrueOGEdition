@@ -21,7 +21,7 @@
    NumberSongs equ NUMBER_SONGS
    .org 0x80037010 :: RNGFunc:
    .org 0x8005EE48 :: RNGPointer:
-   .org 0x80107744 :: Player1StatePointer:
+   ;.org 0x80107744 :: Player1StatePointer:
    .org 0x8011424C :: Player1HeldInputs:
    .org 0x801142E4 :: Player2HeldInputs:
    .org 0x80064E90 :: PauseTextPointer:
@@ -55,8 +55,9 @@
    ; 4 byte vars
    .org 0x801FC92C :: CharacterStageBans:
    .org 0x801FC930 :: NoHazCustomVar:
-   .org 0x801FC934 :: Player2StatePointer:
-   .org 0x801FC938 :: StageRNGHistory:
+   .org 0x801FC934 :: Player1StatePointer:
+   .org 0x801FC938 :: Player2StatePointer:
+   .org 0x801FC93C :: StageRNGHistory:
   
   
   ; First, we need to start with any data that needs to be modified in SLUS_014.04 itself
@@ -90,6 +91,7 @@
   .include "payload/gameplay/CustomRoundLimitPayload.asm"
   .include "payload/gameplay/CustomTimeLimitPayload.asm"
   .include "payload/gameplay/CustomMeterPayload.asm"
+  .include "payload/gameplay/PlayerStatePointersPayload.asm"
   .include "payload/stages/RecyclingPayload.asm"
   .include "payload/stages/WildernessPayload.asm"
   .include "payload/stages/RevolutionPayload.asm"
@@ -97,6 +99,7 @@
   .include "payload/stages/GlacierPayload.asm"
   .include "payload/stages/VolcanoPayload.asm"
   .include "payload/stages/ReapersPayload.asm"
+  .include "payload/stages/InvisibleWallsPayload.asm"
   .include "payload/TOLockdown/CharacterBansPayload.asm"
   .include "payload/TOLockdown/StageBansPayload.asm"
   .include "payload/TOLockdown/HandicapLockdownPayload.asm"
@@ -135,6 +138,7 @@
   .include "game/CustomRoundLimitGame.asm"
   .include "game/CustomTimeLimitGame.asm"
   .include "game/CustomMeterGame.asm"
+  .include "game/PlayerStatePointersGame.asm"
   
   ; Disable 5 Round Limit (removes branch)
   .org 0x800712A8

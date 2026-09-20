@@ -9,51 +9,22 @@ RecyclingTeleporter:
   beq v0,r0,@@Legacy
   nop
   
-  li v0,Player1StatePointer + 0x388
-  lw t7,0(v0)
-  li t6,0xFFF80000
-  li t5,0xFFF70000
-  li t4,0x00090000
-  slt t7,t7,t6
-  beq t7,r0,@@Player2HeightCheck
-  nop
-  addi v0,v0,-4
-  lw t7,0(v0)
-  nop
-  slt t3,t7,t5
-  beq t3,r0,@@Player1RightCheck
-  nop
-  sw t5,0(v0)
-  @@Player1RightCheck:
-  slt t3,t7,t4
-  bne t3,r0,@@Player2HeightCheck
-  nop
-  sw t4,0(v0)
-  
-  @@Player2HeightCheck:
-  li v0,Player2StatePointer
-  lw v0,0(v0)
-  nop
-  beq v0,r0,@@Legacy
-  nop
-  addi v0,v0,0x388
-  lw t7,0(v0)
-  nop
-  slt t7,t7,t6
-  beq t7,r0,@@Legacy
-  nop
-  addi v0,v0,-4
-  lw t7,0(v0)
-  nop
-  slt t3,t7,t5
-  beq t3,r0,@@Player2RightCheck
-  nop
-  sw t5,0(v0)
-  @@Player2RightCheck:
-  slt t3,t7,t4
-  bne t3,r0,@@Legacy
-  nop
-  sw t4,0(v0)
+  addi at,ra,0
+  jal InvisibleWallsStackPrep
+  addi sp,sp,-0x18
+  lui a0,hi(Player1StatePointer)
+  lw a0,lo(Player1StatePointer)(a0)
+  li t0,0xFFF80000
+  li t1,0xFFF70000
+  li t2,0x00090000
+  jal InvisibleWalls
+  addi a1,r0,0
+  lui a0,hi(Player2StatePointer)
+  lw a0,lo(Player2StatePointer)(a0)
+  jal InvisibleWalls
+  addi a1,r0,0
+  jal InvisibleWallsStackUnprep
+  addi sp,sp,0x18
   
   @@Legacy:
   addi v0,r0,0x7FFF  ; Force Teleporter closed

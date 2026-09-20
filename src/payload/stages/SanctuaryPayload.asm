@@ -9,26 +9,20 @@ SanctuaryNoHazards:
   beq v0,r0,@@NoCeiling
   nop
   
-  li v0,Player1StatePointer + 0x388
-  lw t7,0(v0)
-  li t6,0xFFEF0000
-  slt t7,t7,t6
-  beq t7,r0,@@Player2Check
-  nop
-  sw t6,0(v0)
-  @@Player2Check:
-  li v0,Player2StatePointer
-  lw v0,0(v0)
-  nop
-  beq v0,r0,@@NoCeiling
-  nop
-  addi v0,v0,0x388
-  lw t7,0(v0)
-  nop
-  slt t7,t7,t6
-  beq t7,r0,@@NoCeiling
-  nop
-  sw t6,0(v0)
+  addi at,ra,0
+  jal InvisibleWallsStackPrep
+  addi sp,sp,-0x18
+  lui a0,hi(Player1StatePointer)
+  lw a0,lo(Player1StatePointer)(a0)
+  li t0,0xFFEF0000
+  jal InvisibleWalls
+  addi a1,r0,1
+  lui a0,hi(Player2StatePointer)
+  lw a0,lo(Player2StatePointer)(a0)
+  jal InvisibleWalls
+  addi a1,r0,1
+  jal InvisibleWallsStackUnprep
+  addi sp,sp,0x18
   
   @@NoCeiling:
   j SanctuaryHazOffReturn

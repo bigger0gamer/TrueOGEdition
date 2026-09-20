@@ -7,6 +7,8 @@ ForceWinQuote:
   ; reset StageIDVar at end of match
   lui at,hi(StageIDVar)
   sb r0,lo(StageIDVar)(at)
+  sw r0,lo(Player1StatePointer)(at)
+  sw r0,lo(Player2StatePointer)(at)
   
   @@DontForce:
   andi v0,v0,0x0800  ; original instruction

@@ -10,28 +10,21 @@ RevolutionNoHazards:
   j @@Return
   lw v0,0x0D48(s1)
   @@SkipHazards:
-  li v0,Player1StatePointer + 0x388
-  lw t7,0(v0)
-  nop
-  slt t7,t7,r0
-  beq t7,r0,@@Player2Check
-  nop
-  sw r0,0(v0)
-  @@Player2Check:
-  li v0,Player2StatePointer
-  lw v0,0(v0)
-  nop
-  beq v0,r0,@@Return
-  nop
-  addi v0,v0,0x388
-  lw t7,0(v0)
-  nop
-  slt t7,t7,r0
-  beq t7,r0,@@Resetv0
-  nop
-  sw r0,0(v0)
-  @@Resetv0:
-  add v0,r0,r0
+  
+  addi at,ra,0
+  jal InvisibleWallsStackPrep
+  addi sp,sp,-0x18
+  lui a0,hi(Player1StatePointer)
+  lw a0,lo(Player1StatePointer)(a0)
+  lui t0,0
+  jal InvisibleWalls
+  addi a1,r0,1
+  lui a0,hi(Player2StatePointer)
+  lw a0,lo(Player2StatePointer)(a0)
+  jal InvisibleWalls
+  addi a1,r0,1
+  jal InvisibleWallsStackUnprep
+  addi sp,sp,0x18
   
   @@Return:
   j RevolutionNoHazardsReturn

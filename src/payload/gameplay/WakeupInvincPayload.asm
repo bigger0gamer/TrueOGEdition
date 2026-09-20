@@ -22,6 +22,6 @@ WakeupInvinc:
   addiu v0,r0,0
   
   
-  @@Return: :: CHEAT_Wakeup:
+  @@Return:
   j WakeupInvincReturn
   nop

@@ -48,55 +48,22 @@ VolcanoWallsStageID:
   sb v0,lo(StageIDVar)(at)
   
   @@SkipStageID:
-  li v0,Player1StatePointer + 0x388
-  lw t7,0(v0)
-  li t6,0xFFEF0000
-  slt t7,t7,t6
-  beq t7,r0,@@Player1LeftCheck
-  nop
-  sw t6,0(v0)
-  @@Player1LeftCheck:
-  addi v0,v0,-4
-  lw t7,0(v0)
-  li t5,0xFFFC0000
-  slt t3,t7,t5
-  beq t3,r0,@@Player1RightCheck
-  nop
-  sw t5,0(v0)
-  @@Player1RightCheck:
-  li t4,0x00080000
-  slt t3,t7,t4
-  bne t3,r0,@@Player2HeightCheck
-  nop
-  sw t4,0(v0)
-  
-  @@Player2HeightCheck:
-  li v0,Player2StatePointer
-  lw v0,0(v0)
-  nop
-  beq v0,r0,@@Skip
-  nop
-  addi v0,v0,0x388
-  lw t7,0(v0)
-  nop
-  slt t7,t7,t6
-  beq t7,r0,@@Player2LeftCheck
-  nop
-  sw t6,0(v0)
-  @@Player2LeftCheck:
-  addi v0,v0,-4
-  lw t7,0(v0)
-  nop
-  slt t3,t7,t5
-  beq t3,r0,@@Player2RightCheck
-  nop
-  sw t5,0(v0)
-  @@Player2RightCheck:
-  nop
-  slt t3,t7,t4
-  bne t3,r0,@@Skip
-  nop
-  sw t4,0(v0)
+  addi at,ra,0
+  jal InvisibleWallsStackPrep
+  addi sp,sp,-0x18
+  lui a0,hi(Player1StatePointer)
+  lw a0,lo(Player1StatePointer)(a0)
+  li t0,0xFFEF0000
+  li t1,0xFFFC0000
+  li t2,0x00080000
+  jal InvisibleWalls
+  addi a1,r0,2
+  lui a0,hi(Player2StatePointer)
+  lw a0,lo(Player2StatePointer)(a0)
+  jal InvisibleWalls
+  addi a1,r0,2
+  jal InvisibleWallsStackUnprep
+  addi sp,sp,0x18
   
   @@Skip:
   lw v0,0x0D70(s1)  ; orig instruction
