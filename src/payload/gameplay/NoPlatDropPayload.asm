@@ -40,7 +40,5 @@ NoPlatDrop:
 
 StageIDResetOnQuit:
   lui at,hi(StageIDVar)
-  sw r0,lo(Player1StatePointer)(at)
-  sw r0,lo(Player2StatePointer)(at)
   j StageIDResetOnQuitReturn
   sb r0,lo(StageIDVar)(at)
