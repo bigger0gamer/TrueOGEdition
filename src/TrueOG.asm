@@ -58,6 +58,7 @@
    .org 0x801FC934 :: Player1StatePointer:
    .org 0x801FC938 :: Player2StatePointer:
    .org 0x801FC93C :: StageRNGHistory:
+   .org 0x801FC940 :: RNGSeed:
   
   
   ; First, we need to start with any data that needs to be modified in SLUS_014.04 itself
