@@ -44,6 +44,7 @@
    .org 0x801FC8FA :: CustomTimeLimitVar:  ; 2 byte unsigned
    .org 0x801FC8FC :: CustomRoundLimitVar:
    .org 0x801FC8FD :: GameplayFlagsVar:  ; see CustomMeter
+   .org 0x801FC8FE :: SSSCrashTracker:
    
    ; 16 byte vars
    .org 0x801FC900 :: CharacterRNGHistory:
