@@ -23,6 +23,7 @@ WildernessNoHazards:
   addi a1,r0,2
   jal InvisibleWallsStackUnprep
   addi sp,sp,0x18
+  lui v0,0
   
   @@Return:
   j WildernessNoHazardsReturn
